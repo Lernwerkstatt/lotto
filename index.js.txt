@@ -1,0 +1,3 @@
+$("btnBlue").on("load", function() {
+  document.header.style.backgroundColor = 'blue';
+});
