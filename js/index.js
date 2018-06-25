@@ -14,7 +14,7 @@ var arraysAreEquivalent = function (arr1, arr2) {
    // Compare length of arrays
 	 if (arr1.length !== arr2.length) return false;
     // Compare arrays as strings if length is equal
-				if (arr1.toString() !== arr2.toString()) return false;
+			if (arr1.toString() !== arr2.toString()) return false;
   // Return answer true if no return false until here
   return true;
 };
