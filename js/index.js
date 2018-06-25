@@ -23,3 +23,16 @@ console.log("arr1 equals arr2", arraysAreEquivalent(arr1, arr2));
 
 // Tanya
 // write test function with various inputs to test arraysAreEquivalent
+
+function test(expected, actual) {
+  if (expected === actual) {
+      console.log("Test passed");
+  } else {
+      console.log("Test expected " + expected + " but actual " + actual);
+  }
+}
+
+console.log(test(arraysAreEquivalent([1, 1, 3], [1, 5, 3]), false));
+console.log(test(arraysAreEquivalent([1, 81, 3], [1, 32, 6]), false));
+console.log(test(arraysAreEquivalent([1, 2], [1, 2]), true));
+console.log(test(arraysAreEquivalent([1, 26, 3], [1, 2]), false));
