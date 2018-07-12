@@ -15,3 +15,26 @@ header {
   font-weight: bold;
   color: red;
 }
+
+
+body {
+  box-sizing: border-box;
+  background-color: #ffeead;
+  height: 100%;
+  padding: 100px;
+  margin: 0px;
+}
+
+
+form {
+  display: grid;
+  height: 50%;
+  background-color: antiquewhite;
+  background-image: url(images/paper-bg);
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 40px auto 40px;
+}
+
+input[type="checkbox"] {
+  display: 
+}
