@@ -18,6 +18,10 @@ function arraysAreEquivalent(a, b) {
   return true;
 }
 
+function numberOfCorrectGuesses(guesses, lotto) {
+  return lotto.length;
+}
+
 // Tanya
 // write test function with various inputs to test arraysAreEquivalent
 
@@ -35,3 +39,7 @@ test(true, arraysAreEquivalent([1, 2], [1, 2]));
 test(false, arraysAreEquivalent([1, 26, 3], [1, 2]));
 test(true, arraysAreEquivalent([1, 2, 3, 4, 5, 6], [1, 4, 6, 2, 3, 5]));
 test(false, arraysAreEquivalent(["1", 2, 3], [1, 3, 2]));
+test(2, numberOfCorrectGuesses([1, 2], [1, 2]));
+test(0, numberOfCorrectGuesses([1, 2, 3], [4, 5, 6]));
+test(1, numberOfCorrectGuesses([1, 2, 3], [7, 2, 4]));
+test(3, numberOfCorrectGuesses([1, 2, 3], [3, 2, 1]));
