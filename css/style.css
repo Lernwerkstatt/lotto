@@ -2,21 +2,6 @@ header {
   text-align: center;
 }
 
-.box {
-  display: inline-block;
-  width: 25px;
-  height: 40px;
-  border: solid red 2px;
-  padding: 6px;
-  margin: 6px;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 20px;
-  font-weight: bold;
-  color: red;
-}
-
-
 body {
   box-sizing: border-box;
   background-color: #ffeead;
@@ -25,16 +10,26 @@ body {
   margin: 0px;
 }
 
-
-form {
+.container {
   display: grid;
-  height: 50%;
-  background-color: antiquewhite;
-  background-image: url(images/paper-bg);
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 40px auto 40px;
+  background: url("../images/paper-bg.jpg"), #F0EEEA;
+  padding: 50px;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+  grid-auto-rows: 75px;
+  grid-auto-flow: dense;
 }
 
-input[type="checkbox"] {
-  display: 
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  margin-left: 40%;
+  font-size: 110%;
+  padding: 10px;
+  cursor: pointer;
 }

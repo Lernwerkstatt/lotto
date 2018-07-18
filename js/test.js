@@ -1,7 +1,7 @@
 function createNewElement(number) {
-  var newElement = document.createElement("INPUT");
+  var newElement = document.createElement("input");
   newElement.setAttribute("type", "checkbox");
-  var newElementNumber = document.createElement("SPAN");
+  var newElementNumber = document.createElement("span");
   newElement.appendChild(newElementNumber);
   newElementNumber.innerHTML = number;
   newElement.onclick = function () {
@@ -33,12 +33,11 @@ function checkboxes() {
   for (var i = 0; i < inputElems.length; i++) {
     if (inputElems[i].type === "checkbox" && inputElems[i].checked === true) {
       count++;
-      //alert(count);
     }
   }
   if (count !== 6) {
     alert('Please select exactly 6 numbers');
   }
 
-  
+
 }
