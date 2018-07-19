@@ -1,13 +1,12 @@
-
-var checkAndPush = function(size, min, max) {
-  if ((max - min +1) < size) {
+function generateArray(size, min, max) {
+  if ((max - min + 1) < size) {
     return "Not enough numbers for operation";
   }
-  var massiv = [];
-  for (var i=0; massiv.length<size; i++) {
-    var x = Math.floor(Math.random()*(max-min+1))+min;
-    if (!massiv.includes(x))
-    massiv.push(x);
+  var randomArray = [];
+  for (var i = 0; randomArray.length < size; i++) {
+    var x = Math.floor(Math.random() * (max - min + 1)) + min;
+    if (!randomArray.includes(x))
+    randomArray.push(x);
 }
-return massiv;
+return randomArray;
 }

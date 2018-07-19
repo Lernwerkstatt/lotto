@@ -25,6 +25,7 @@ function changeSelection(number) {
 function checkboxes() {
   var inputElems = document.getElementsByTagName("input");
   var count = 0;
+  console.log(inputElems);
   var selectedNumber = [];
   for (var i = 0; i < inputElems.length; i++) {
     if (inputElems[i].type === "checkbox" && inputElems[i].checked === true) {
