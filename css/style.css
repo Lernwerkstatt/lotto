@@ -19,6 +19,29 @@ body {
   grid-auto-rows: 75px;
   grid-auto-flow: dense;
   font-family: "Times New Roman", Times, serif;
+  position: relative;
+}
+
+.container::before,
+.container::after {
+  z-index: -1;
+  position: absolute;
+  content: '';
+  bottom: 1em;
+  width: 50%;
+  top: 80%;  
+  background: #777;
+  box-shadow: 0 1em .5em #777;   
+}
+
+.container::before {
+  transform: rotate(-3deg); 
+  left: .5em; 
+}
+
+.container::after {
+  transform: rotate(3deg);    
+  right: .5em; 
 }
 
 .container label {
