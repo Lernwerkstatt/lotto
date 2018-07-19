@@ -18,12 +18,31 @@ function arraysAreEquivalent(a, b) {
   return true;
 }
 
+
+/*
 function numberOfCorrectGuesses(guesses, lotto) {
-  for (var i = 0; i < a.length; ++i) {
-    if (a[i] !== b[i]) {
-      return false;
+  var counter = 0;
+  for (var i = 0; i < guesses.length; ++i) {
+    console.log(guesses[i]);
+    var a = guesses[i];
+    if (guesses[i] == lotto.includes(a)) {
+      counter++;
     }
-  return lotto.length;
+    } 
+  return counter;
+}
+*/
+
+function numberOfCorrectGuesses(guesses, lotto) {
+  var counter = 0;
+  for (var i = 0; i < guesses.length; ++i) {
+    for (var j = 0; j < guesses.length; j++) {
+      if (guesses[i] === lotto[j]) {
+        counter++;
+      }
+    }
+  }
+  return counter;
 }
 
 // Tanya
