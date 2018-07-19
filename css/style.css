@@ -8,6 +8,7 @@ body {
   height: 100%;
   padding: 100px;
   margin: 0px;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .container {
@@ -18,7 +19,6 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
   grid-auto-rows: 75px;
   grid-auto-flow: dense;
-  font-family: "Times New Roman", Times, serif;
   position: relative;
 }
 
@@ -84,4 +84,18 @@ button[name="check"] {
 button[name="check"]:hover {
   color: #000000;
   border-color: #544c3d;
+}
+
+#selection {
+  background-color: #F0EEEA;
+  margin-top: 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  color: #544c3d;
+  height: 120px;
+  font-size: 300%;
 }
