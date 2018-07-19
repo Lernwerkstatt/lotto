@@ -37,7 +37,7 @@ function checkboxes() {
   }
   else {
     //alert('Your numbers will be checked.');
-    alert("You have " + compareTwoArrays(selectedNumber, generateArray(6, 1, 49)) + " number(s) guessed right.");
+    alert("You have " + numberOfCorrectGuesses(selectedNumber, generateArray(6, 1, 49)) + " number(s) guessed right.");
       
   }
 }
