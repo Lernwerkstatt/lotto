@@ -19,20 +19,22 @@ function arraysAreEquivalent(a, b) {
 }
 
 
-/*
 function numberOfCorrectGuesses(guesses, lotto) {
+  var i;
   var counter = 0;
-  for (var i = 0; i < guesses.length; ++i) {
-    console.log(guesses[i]);
-    var a = guesses[i];
-    if (guesses[i] == lotto.includes(a)) {
-      counter++;
-    }
-    } 
+  var guessedNumbers = [];
+  for ( i = 0 ; i < guesses.length; i++ ) {
+      if (lotto.includes(guesses[i])) {
+        var guessedNumber = guesses[i];
+        guessedNumbers.push(guessedNumber);
+        counter++
+      }
+  }
+  console.log(guessedNumbers);
   return counter;
+  
 }
-*/
-
+/*
 function numberOfCorrectGuesses(guesses, lotto) {
   var counter = 0;
   for (var i = 0; i < guesses.length; ++i) {
@@ -44,7 +46,7 @@ function numberOfCorrectGuesses(guesses, lotto) {
   }
   return counter;
 }
-
+*/
 // Tanya
 // write test function with various inputs to test arraysAreEquivalent
 

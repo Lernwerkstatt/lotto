@@ -35,6 +35,7 @@ function checkboxes() {
   }
   if (count !== 6) {
     alert('Please select exactly 6 numbers');
+    location.reload(); // it reloades if number of boxes is differ from required
   }
   else {
     //alert('Your numbers will be checked.');
