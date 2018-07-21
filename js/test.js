@@ -20,7 +20,7 @@ for (var i = 1; i < 50; i++) {
 }
 function changeSelection(number) {
   var selection = document.getElementById("selection");
-  selection.innerHTML = number;
+  selection.innerHTML += number + " ";
 }
 function checkboxes() {
   var inputElems = document.getElementsByTagName("input");
@@ -39,6 +39,6 @@ function checkboxes() {
   else {
     //alert('Your numbers will be checked.');
     alert("You have " + numberOfCorrectGuesses(selectedNumber, generateArray(6, 1, 49)) + " number(s) guessed right.");
-      
+    location.reload(); 
   }
 }
