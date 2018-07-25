@@ -6,7 +6,7 @@ body {
   box-sizing: border-box;
   background-color: #ffeead;
   height: 100%;
-  padding: 50px 100px;
+  padding: 50px 100px 200px;
   margin: 0px;
   font-family: "Times New Roman", Times, serif;
 }
@@ -92,6 +92,7 @@ button[name="check"] {
 button[name="check"]:hover {
   color: #000000;
   border-color: #544c3d;
+  background: #d0c6b3;
 }
 
 #selection {
@@ -126,4 +127,22 @@ button[name="check"]:hover {
   height: 100%;
   width: 100%;
   cursor: pointer;
+}
+
+
+
+
+/* @media */
+@media (max-width: 754px) {
+    .container::before, 
+    .container::after {
+      top: 92%;
+  }
+}
+
+@media (max-width: 470px) {
+    .container::before, 
+    .container::after {
+      top: 97%;
+  }
 }
