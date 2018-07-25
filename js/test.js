@@ -28,7 +28,7 @@ for (var i = 1; i < 50; i++) {
 
 function changeSelection(number) {
   var selection = document.getElementById("selection");
-  selection.innerHTML += number + " ";
+  selection.innerHTML += "<span>" + number + "</span>";
 }
 
 function checkboxes() {
