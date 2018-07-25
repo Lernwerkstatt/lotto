@@ -6,7 +6,7 @@ body {
   box-sizing: border-box;
   background-color: #ffeead;
   height: 100%;
-  padding: 100px;
+  padding: 50px 100px;
   margin: 0px;
   font-family: "Times New Roman", Times, serif;
 }
@@ -64,6 +64,12 @@ body {
   background: #d0c6b3;
 }
 
+.container label.selected {
+  background-color: #bebebe;
+  color: #858483;
+  cursor: none;
+}
+
 .box {
   visibility: hidden;
   position: absolute;
@@ -98,4 +104,15 @@ button[name="check"]:hover {
   color: #544c3d;
   height: 120px;
   font-size: 300%;
+  overflow: hidden;
+}
+
+#selection span {
+  margin-right: 2%;
+  border: 1px solid #d0c6b3;
+  border-radius: 100%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 6.2%;
+  line-height: 1.6;
 }
