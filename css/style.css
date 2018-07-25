@@ -68,6 +68,8 @@ body {
   background-color: #bebebe;
   color: #858483;
   cursor: none;
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .box {
@@ -93,26 +95,35 @@ button[name="check"]:hover {
 }
 
 #selection {
+  display: grid;
   background-color: #F0EEEA;
   margin-top: 8%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  color: #544c3d;
+  padding: 50px;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(75px, 78px));
+  grid-auto-rows: 75px;
+  grid-auto-flow: dense;
+  position: relative;
+}
+
+#selection span {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   vertical-align: middle;
-  position: relative;
-  color: #544c3d;
-  height: 120px;
   font-size: 300%;
-  overflow: hidden;
-}
-
-#selection span {
-  margin-right: 2%;
   border: 1px solid #d0c6b3;
   border-radius: 100%;
-  flex-grow: 0;
-  flex-shrink: 0;
-  flex-basis: 6.2%;
-  line-height: 1.6;
+  position: relative;
+  color: #544c3d;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
 }
