@@ -1,6 +1,6 @@
 function createNewElement(number) {
-  var result = document.createElement("LABEL");
-  var newInput = document.createElement("INPUT");
+  var result = document.createElement("label");
+  var newInput = document.createElement("input");
   newInput.setAttribute("type", "checkbox");
   newInput.onclick = function () {
     changeSelection(number);
@@ -10,10 +10,10 @@ function createNewElement(number) {
       this.parentElement.classList.remove("selected");
     }
   };
-
+  
   newInput.className = "box";
   newInput.id = number;
-  var newSpan = document.createElement("SPAN");
+  var newSpan = document.createElement("span");
   newSpan.innerHTML = number;
   result.appendChild(newInput);
   result.appendChild(newSpan);
@@ -47,7 +47,7 @@ function checkboxes() {
     location.reload();
   }
   else {
-    alert("You have " + numberOfCorrectGuesses(selectedNumber, generateArray(6, 1, 49)) + " number(s) guessed right.");
+    alert("You have " + numberOfCorrectGuesses(selectedNumber, generateLottoArray(6, 1, 49)) + " number(s) guessed right.");
     location.reload();
   }
 }
