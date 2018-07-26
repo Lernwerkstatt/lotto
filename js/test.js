@@ -1,8 +1,8 @@
 function createNewElement(number) {
-  var newLabel = document.createElement("LABEL");
-  var newElement = document.createElement("INPUT");
-  newElement.setAttribute("type", "checkbox");
-  newElement.onclick = function () {
+  var result = document.createElement("LABEL");
+  var newInput = document.createElement("INPUT");
+  newInput.setAttribute("type", "checkbox");
+  newInput.onclick = function () {
     changeSelection(number);
     if (this.checked) {
       this.parentElement.classList.add("selected");
@@ -11,13 +11,13 @@ function createNewElement(number) {
     }
   };
 
-  newElement.className = "box";
-  newElement.id = number;
+  newInput.className = "box";
+  newInput.id = number;
   var newSpan = document.createElement("SPAN");
   newSpan.innerHTML = number;
-  newLabel.appendChild(newElement);
-  newLabel.appendChild(newSpan);
-  return newLabel;
+  result.appendChild(newInput);
+  result.appendChild(newSpan);
+  return result;
 }
 
 var container = document.getElementById("container");
@@ -44,10 +44,9 @@ function checkboxes() {
   }
   if (count !== 6) {
     alert('Please select exactly 6 numbers');
-    location.reload(); // it reloades if number of boxes is differ from required
+    location.reload();
   }
   else {
-    //alert('Your numbers will be checked.');
     alert("You have " + numberOfCorrectGuesses(selectedNumber, generateArray(6, 1, 49)) + " number(s) guessed right.");
     location.reload();
   }

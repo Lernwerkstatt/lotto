@@ -1,12 +1,11 @@
 function generateArray(size, min, max) {
-  if ((max - min + 1) < size) {
-    return "Not enough numbers for operation";
+  var result = [];
+  for (var i = 0; result.length < size; i++) {
+    var newRandom = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    if (!result.includes(newRandom)) {
+      result.push(newRandom);
+    }
   }
-  var randomArray = [];
-  for (var i = 0; randomArray.length < size; i++) {
-    var x = Math.floor(Math.random() * (max - min + 1)) + min;
-    if (!randomArray.includes(x))
-    randomArray.push(x);
-}
-return randomArray;
+  return result;
 }

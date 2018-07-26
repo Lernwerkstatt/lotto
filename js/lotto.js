@@ -1,14 +1,8 @@
-  // Daniel
-
-  // write a function, which accepts two arrays
-  // and returns true if both have the same elements
-  // which do not have to be in order
-
 function arraysAreEquivalent(a, b) {
   if (a.length !== b.length) {
     return false;
   }
-  a.sort();  
+  a.sort();
   b.sort();
   for (var i = 0; i < a.length; ++i) {
     if (a[i] !== b[i]) {
@@ -18,43 +12,27 @@ function arraysAreEquivalent(a, b) {
   return true;
 }
 
-
 function numberOfCorrectGuesses(guesses, lotto) {
-  var i;
-  var counter = 0;
+  var result = 0;
   var guessedNumbers = [];
-  for ( i = 0 ; i < guesses.length; i++ ) {
-      if (lotto.includes(guesses[i])) {
-        var guessedNumber = guesses[i];
-        guessedNumbers.push(guessedNumber);
-        counter++
-      }
-  }
-  console.log(guessedNumbers);
-  return counter;
-  
-}
-/*
-function numberOfCorrectGuesses(guesses, lotto) {
-  var counter = 0;
-  for (var i = 0; i < guesses.length; ++i) {
-    for (var j = 0; j < guesses.length; j++) {
-      if (guesses[i] === lotto[j]) {
-        counter++;
-      }
+
+  for (var i = 0; i < guesses.length; i++) {
+    if (lotto.includes(guesses[i])) {
+      var guessedNumber = guesses[i];
+      guessedNumbers.push(guessedNumber);
+      result++
     }
   }
-  return counter;
+
+  console.log(guessedNumbers);
+  return result;
 }
-*/
-// Tanya
-// write test function with various inputs to test arraysAreEquivalent
 
 function test(expected, actual) {
-    if (expected === actual) {
-      console.log("Test passed");
+  if (expected === actual) {
+    console.log("Test passed");
   } else {
-      console.log("Test expected " + expected + " but actual " + actual);
+    console.log("Test expected " + expected + " but actual " + actual);
   }
 }
 
