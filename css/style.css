@@ -1,7 +1,3 @@
-header {
-  text-align: center;
-}
-
 body {
   box-sizing: border-box;
   background-color: #ffeead;
@@ -29,19 +25,19 @@ body {
   content: '';
   bottom: 1em;
   width: 50%;
-  top: 80%;  
+  top: 80%;
   background: #777;
-  box-shadow: 0 1em .5em #777;   
+  box-shadow: 0 1em .5em #777;
 }
 
 .container::before {
-  transform: rotate(-3deg); 
-  left: .5em; 
+  transform: rotate(-3deg);
+  left: .5em;
 }
 
 .container::after {
-  transform: rotate(3deg);    
-  right: .5em; 
+  transform: rotate(3deg);
+  right: .5em;
 }
 
 .container label {
@@ -83,7 +79,7 @@ button[name="check"] {
   float: right;
   margin-top: 2%;
   padding: 10px 20px;
-  border-radius: 5px; 
+  border-radius: 5px;
   background: #F0EEEA;
   color: #544c3d;
   border: 1px solid #d0c6b3;
@@ -129,12 +125,8 @@ button[name="check"]:hover {
   cursor: pointer;
 }
 
-
-
-
-/* @media */
 @media (max-width: 754px) {
-    .container::before, 
+    .container::before,
     .container::after {
       top: 92%;
   }
