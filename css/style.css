@@ -196,21 +196,26 @@ button[name="check"]:hover {
 
 #dialogoverlay {
 	display: none;
-	opacity: .8;
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	background: #FFF;
-	width: 100%;
-	z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  background: #000;
+  z-index: 5;
 }
 
 #dialogbox {
 	display: none;
   position: fixed;
+  top: 150px;
+  left: 50%;
+  margin: 0 0 0 -276px;
+  border-radius: 8px;
+  border: 1px solid #5e7b6d;
   background: #d0c6b3;
-  border-radius: 7px;
-  width: 38.2%;
+  width: 550px;
   z-index: 10;
   font-family: "Times New Roman", Times, serif;
   color: #544c3d;
@@ -265,6 +270,11 @@ button[name="check"]:hover {
   .container {
     margin-top: 60px;
   }
+
+  #dialogbox {
+    width: 500px;
+    margin: 0 0 0 -251px;
+  }
 }
 
 @media (max-width: 515px) {
@@ -274,6 +284,11 @@ button[name="check"]:hover {
 
   .container {
     margin-top: 50px;
+  }
+
+  #dialogbox {
+    width: 450px;
+    margin: 0 0 0 -226px;
   }
 }
 
@@ -290,11 +305,21 @@ button[name="check"]:hover {
     margin-top: 40px;
     font-size: 0.7em;
   }
+
+  #dialogbox {
+    width: 420px;
+    margin: 0 0 0 -211px;
+  }
 }
 
 @media (max-width: 460px) {
   .container::before, 
   .container::after {
     top: 97%;
+  }
+
+  #dialogbox {
+    width: 380px;
+    margin: 0 0 0 -191px;
   }
 }
