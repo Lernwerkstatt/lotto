@@ -70,6 +70,11 @@ body {
   margin: 20px;
 }
 
+.ticket-header .rules {
+  margin-top: 80px;
+  font-size: 1em; 
+}
+
 .container {
   display: grid;
   margin-top: 100px;
@@ -203,6 +208,11 @@ button[name="check"]:hover {
     font-size: 2em;
   }
 
+  .ticket-header .rules {
+    margin-top: 60px;
+    font-size: 0.8em;
+  }
+
   .container {
     margin-top: 60px;
   }
@@ -225,6 +235,11 @@ button[name="check"]:hover {
 
   .ticket-header h1 {
     font-size: 1em;
+  }
+
+  .ticket-header .rules {
+    margin-top: 40px;
+    font-size: 0.7em;
   }
 }
 
