@@ -3,10 +3,11 @@ function createNewElement(number) {
   var newInput = document.createElement("input");
   newInput.setAttribute("type", "checkbox");
   newInput.onclick = function () {
-    changeSelection(number);
     if (this.checked) {
+      changeSelection(number);
       this.parentElement.classList.add("selected");
     } else {
+      removeSelection(number);
       this.parentElement.classList.remove("selected");
     }
   };
@@ -20,15 +21,20 @@ function createNewElement(number) {
   return result;
 }
 
-var container = document.getElementById("container");
-for (var i = 1; i < 50; i++) {
-  var element = createNewElement(i);
-  container.appendChild(element);
-}
-
 function changeSelection(number) {
   var selection = document.getElementById("selection");
-  selection.innerHTML += "<span>" + number + "</span>";
+  var newSpan = document.createElement("span");
+  newSpan.setAttribute("id", "selection-" + number);
+  newSpan.innerHTML = number;
+  newSpan.onclick = function () {
+      this.remove();
+  };
+
+  selection.appendChild(newSpan);
+}
+
+function removeSelection(number) {
+  document.getElementById("selection-" + number).remove();
 }
 
 function checkboxes() {
@@ -67,3 +73,15 @@ function CustomAlert() {
   }
 }
 var Alert = new CustomAlert();
+
+
+function renderNumbersPool() {
+  var container = document.getElementById("container");
+  for (var i = 1; i < 50; i++) {
+    var element = createNewElement(i);
+    container.appendChild(element);
+  }
+}
+
+// Init
+renderNumbersPool();
