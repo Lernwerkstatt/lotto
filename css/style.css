@@ -73,7 +73,7 @@ body {
 .ticket-header .rules {
   margin-top: 80px;
   font-size: 1em;
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif; 
+  font-family: "Palatino Linotype", "Book Antiqua", serif; 
   font-weight: bold;
 }
 
@@ -125,8 +125,7 @@ body {
   color: #544c3d;
 }
 
-.container label:hover,
-.container label.selected:hover {
+.container label:hover {
   background: #d0c6b3;
   box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.55);
 }
@@ -134,6 +133,10 @@ body {
 .container label.selected {
   background: #d0c6b3;
   box-shadow: none;
+}
+
+.container label.selected:hover {
+  background: #b9a98b;
 }
 
 .box {
@@ -145,16 +148,19 @@ body {
 
 button[name="check"] {
   float: right;
+  font-size: 1.2em;
   margin-top: 2%;
-  padding: 10px 20px;
+  padding: 20px 80px;
   border-radius: 5px;
   background: #F0EEEA;
   color: #544c3d;
   border: 1px solid #d0c6b3;
+  text-transform: uppercase;
+  font-family: "Palatino Linotype", "Book Antiqua", serif;
 }
 
 button[name="check"]:hover {
-  color: #000000;
+  color: #383229;
   border-color: #544c3d;
   background: #d0c6b3;
   box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.75);
