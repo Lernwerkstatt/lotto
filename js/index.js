@@ -13,7 +13,7 @@ function createNewElement(number) {
   };
   
   newInput.className = "box";
-  newInput.id = number;
+  newInput.id = "pool-" + number;
   var newSpan = document.createElement("span");
   newSpan.innerHTML = number;
   result.appendChild(newInput);
@@ -24,10 +24,10 @@ function createNewElement(number) {
 function changeSelection(number) {
   var selection = document.getElementById("selection");
   var newSpan = document.createElement("span");
-  newSpan.setAttribute("id", "selection-" + number);
+  newSpan.id = "selection-" + number;
   newSpan.innerHTML = number;
   newSpan.onclick = function () {
-      this.remove();
+      document.getElementById("pool-" + number).click();
   };
 
   selection.appendChild(newSpan);
