@@ -14,6 +14,7 @@ function createNewElement(number) {
   
   newInput.className = "box";
   newInput.id = "pool-" + number;
+  newInput.setAttribute('data-number', number);
   var newSpan = document.createElement("span");
   newSpan.innerHTML = number;
   result.appendChild(newInput);
@@ -45,7 +46,7 @@ function checkboxes() {
   for (var i = 0; i < inputElems.length; i++) {
     if (inputElems[i].type === "checkbox" && inputElems[i].checked === true) {
       count++;
-      selectedNumber.push(parseInt(inputElems[i].id));
+      selectedNumber.push(parseInt(inputElems[i].getAttribute('data-number')));
     }
   }
   if (count !== 6) {
