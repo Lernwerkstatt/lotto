@@ -1,16 +1,85 @@
 body {
   box-sizing: border-box;
-  background-color: #ffeead;
+  background-color: #167651;
   height: 100%;
   padding: 50px 100px 200px;
   margin: 0px;
   font-family: "Times New Roman", Times, serif;
 }
 
-.container {
-  display: grid;
+.ticket {
   background: url("../images/paper-bg.jpg"), #F0EEEA;
   padding: 50px;
+}
+
+.ticket-header {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  color: #544c3d;
+  text-transform: uppercase;
+}
+
+.ticket-header h1 {
+  font-weight: normal;
+  font-size: 3em;
+}
+
+.ticket-header h1 .letter {
+  display: inline-block;
+  position: relative;
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+  padding: 1%;
+  border-radius: 100%; 
+  color: #FFFCF6;
+  box-shadow: inset -25px -25px 40px rgba(0,0,0,.5);
+  background-image: -webkit-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
+  background-image: -moz-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);  
+  background-image: -o-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
+  background-image: -ms-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
+
+}
+
+.ticket-header h1 .letter-l {
+  background-color: #BB1F13;
+}
+
+.ticket-header h1 .letter-o1 {
+  background-color: #001D48;
+}
+
+.ticket-header h1 .letter-t1 {
+  background-color: #E28028;
+}
+
+.ticket-header h1 .letter-t2 {
+  background-color: #549924;
+}
+
+.ticket-header h1 .letter-o2 {
+  background-color: #7C2172;
+}
+
+.ticket-header h1 .name {
+  display: block;
+  font-size: 0.5em;
+  margin: 20px;
+}
+
+.ticket-header .rules {
+  margin-top: 80px;
+  font-size: 1em;
+  font-family: "Palatino Linotype", "Book Antiqua", serif; 
+  font-weight: bold;
+}
+
+.container {
+  display: grid;
+  margin-top: 100px;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
   grid-auto-rows: 75px;
@@ -58,14 +127,16 @@ body {
 
 .container label:hover {
   background: #d0c6b3;
+  box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.55);
 }
 
 .container label.selected {
-  background-color: #bebebe;
-  color: #858483;
-  cursor: none;
-  opacity: 0.5;
-  pointer-events: none;
+  background: #d0c6b3;
+  box-shadow: none;
+}
+
+.container label.selected:hover {
+  background: #b9a98b;
 }
 
 .box {
@@ -77,18 +148,22 @@ body {
 
 button[name="check"] {
   float: right;
+  font-size: 1.2em;
   margin-top: 2%;
-  padding: 10px 20px;
+  padding: 20px 80px;
   border-radius: 5px;
   background: #F0EEEA;
   color: #544c3d;
   border: 1px solid #d0c6b3;
+  text-transform: uppercase;
+  font-family: "Palatino Linotype", "Book Antiqua", serif;
 }
 
 button[name="check"]:hover {
-  color: #000000;
+  color: #383229;
   border-color: #544c3d;
   background: #d0c6b3;
+  box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
 
 #selection {
@@ -107,6 +182,7 @@ button[name="check"]:hover {
   grid-auto-rows: 75px;
   grid-auto-flow: dense;
   position: relative;
+  height: 78px;
 }
 
 #selection span {
@@ -116,25 +192,148 @@ button[name="check"]:hover {
   text-align: center;
   vertical-align: middle;
   font-size: 300%;
-  border: 1px solid #d0c6b3;
   border-radius: 100%;
   position: relative;
-  color: #544c3d;
   height: 100%;
   width: 100%;
+  background: #d0c6b3;
   cursor: pointer;
 }
 
+#selection span:hover {
+  box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.55);
+}
+
+#selection span.selected {
+  box-shadow: none;
+}
+
+#dialogoverlay {
+	display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  background: #000;
+  z-index: 5;
+}
+
+#dialogbox {
+	display: none;
+  position: fixed;
+  top: 150px;
+  left: 50%;
+  margin: 0 0 0 -276px;
+  border-radius: 8px;
+  border: 1px solid #5e7b6d;
+  background: #d0c6b3;
+  width: 550px;
+  z-index: 10;
+  font-family: "Times New Roman", Times, serif;
+  color: #544c3d;
+  text-transform: uppercase;
+  box-shadow: 0px 0px 73px 7px rgba(0,0,0,0.75);
+}
+
+#dialogbox > div { 
+  background: url("../images/paper-bg.jpg"), #F0EEEA; 
+  margin: 8px; 
+}
+
+#dialogbox > div > #dialogboxbody {
+  padding: 20px;
+}
+
+#dialogbox > div > #dialogboxfoot {
+  padding: 10px; 
+  text-align: right; 
+}
+
+#dialogbox > div > #dialogboxfoot button {
+  padding: 1% 6%;
+  border-radius: 5px;
+}
+
+#dialogbox > div > #dialogboxfoot button:hover {
+  background: #d0c6b3;
+}
+
 @media (max-width: 754px) {
-    .container::before,
-    .container::after {
-      top: 92%;
+  .container {
+    margin-top: 80px;
+  }
+
+  .container::before,
+  .container::after {
+    top: 92%;
   }
 }
 
-@media (max-width: 470px) {
-    .container::before, 
-    .container::after {
-      top: 97%;
+@media (max-width: 630px) {
+  .ticket-header h1 {
+    font-size: 2em;
+  }
+
+  .ticket-header .rules {
+    margin-top: 60px;
+    font-size: 0.8em;
+  }
+
+  .container {
+    margin-top: 60px;
+  }
+
+  #dialogbox {
+    width: 500px;
+    margin: 0 0 0 -251px;
+  }
+}
+
+@media (max-width: 515px) {
+  .ticket {
+    padding: 45px 30px;
+  }
+
+  .container {
+    margin-top: 50px;
+  }
+
+  #dialogbox {
+    width: 450px;
+    margin: 0 0 0 -226px;
+  }
+}
+
+@media (max-width: 475px) {
+  .ticket {
+    padding: 30px;
+  }
+
+  .ticket-header h1 {
+    font-size: 1em;
+  }
+
+  .ticket-header .rules {
+    margin-top: 40px;
+    font-size: 0.7em;
+  }
+
+  #dialogbox {
+    width: 420px;
+    margin: 0 0 0 -211px;
+  }
+}
+
+@media (max-width: 460px) {
+  .container::before, 
+  .container::after {
+    top: 97%;
+  }
+
+  #dialogbox {
+    width: 380px;
+    margin: 0 0 0 -191px;
   }
 }
