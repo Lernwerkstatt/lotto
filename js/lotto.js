@@ -9,12 +9,6 @@ function numberOfCorrectGuesses(userArray, lottoArray) {
       result++
     }
   }
-  var userGuessedComb = document.getElementById("selection");
-  if (result > 0) {
-    userGuessedComb.innerHTML = "The numbers you guessed are  " + guessedNumbers;
-  } else {
-    userGuessedComb.innerHTML = "You didn't geuess any number, but you can try again. Good luck!";
-  }
   console.log(guessedNumbers);
   return result;
 }
