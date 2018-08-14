@@ -192,7 +192,7 @@ button[name="check"]:hover {
   grid-auto-rows: 75px;
   grid-auto-flow: dense;
   position: relative;
-  height: 78px;
+  min-height: 78px;
 }
 
 #selection span {
