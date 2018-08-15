@@ -91,10 +91,11 @@ body {
   display: grid;
   margin-top: 100px;
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(73px, 80px));
   grid-auto-rows: 75px;
   grid-auto-flow: dense;
   position: relative;
+  justify-content: space-around;
 }
 
 .container::before,
