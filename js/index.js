@@ -4,9 +4,11 @@ function createNewElement(number) {
   newInput.setAttribute("type", "checkbox");
   newInput.onclick = function () {
     if (this.checked) {
+      playSound("./sounds/tink.wav");
       changeSelection(number);
       this.parentElement.classList.add("selected");
     } else {
+      playSound("./sounds/kick.wav");
       removeSelection(number);
       this.parentElement.classList.remove("selected");
     }
@@ -38,7 +40,13 @@ function removeSelection(number) {
   document.getElementById("selection-" + number).remove();
 }
 
-function checkboxes() {
+function playSound(path) { 
+  var audioElement = document.createElement('audio');
+  audioElement.setAttribute('src', path);
+  audioElement.play();
+}
+
+function checkboxes() {  
   var inputElems = document.getElementsByTagName("input");
   var count = 0;
   console.log(inputElems);
@@ -50,9 +58,11 @@ function checkboxes() {
     }
   }
   if (count !== 6) {
+    playSound("./sounds/mistake.wav");
     Alert.render("Please select exactly 6 numbers");
   }
   else {
+    playSound("./sounds/openhat.wav");
     Alert.render("You have " + numberOfCorrectGuesses(selectedNumber, generateLottoArray(6, 1, 49)) + " number(s) guessed right.");
   }
 }
