@@ -62,8 +62,9 @@ function checkboxes() {
     Alert.render("Please select exactly 6 numbers");
   }
   else {
-    playSound("./sounds/openhat.wav");
-    Alert.render("You have " + numberOfCorrectGuesses(selectedNumber, generateLottoArray(6, 1, 49)) + " number(s) guessed right.");
+    let rightNumbers = generateLottoArray(6, 1, 49).sort((a, b) => a - b);
+    playSound("./sounds/openhat.wav");    
+    Alert.render("Following numbers were drawn. " + rightNumbers + "<br />" + " You have " + numberOfCorrectGuesses(selectedNumber, rightNumbers) + " number(s) guessed right.");
   }
 }
 
