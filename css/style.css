@@ -232,6 +232,7 @@ button[name="check"]:hover {
 }
 
 #dialogbox {
+  font-size: 150%;
 	display: none;
   position: fixed;
   top: 150px;
@@ -347,4 +348,14 @@ button[name="check"]:hover {
     width: 380px;
     margin: 0 0 0 -191px;
   }
+}
+
+#charOne, #charTwo, #charThree, #charFour, #charFive {
+  animation: char-spin infinite var(--animation-time) linear;
+  
+}
+
+@keyframes char-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
