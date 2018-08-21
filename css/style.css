@@ -19,7 +19,30 @@ body {
 
 .ticket {
   background: url("../images/paper-bg.jpg"), #F0EEEA;
-  padding: 7%;
+  padding: 3% 5%;
+  position: relative;
+}
+
+.ticket::before,
+.ticket::after {
+  z-index: -1;
+  position: absolute;
+  content: '';
+  bottom: 1em;
+  width: 50%;
+  top: 80%;
+  background: #777;
+  box-shadow: 0 10px 34px -6px #000;
+}
+
+.ticket::before {
+  transform: rotate(-3deg);
+  left: .5em;
+}
+
+.ticket::after {
+  transform: rotate(3deg);
+  right: .5em;
 }
 
 .ticket-header {
@@ -34,7 +57,6 @@ body {
 
 .ticket-header h1 {
   font-weight: normal;
-  font-size: 3em;
 }
 
 .ticket-header h1 .letter {
@@ -81,43 +103,21 @@ body {
 }
 
 .ticket-header .rules {
-  margin-top: 80px;
-  font-size: 1em;
+  margin-top: 50px;
+  font-size: 0.9em;
   font-family: "Palatino Linotype", "Book Antiqua", serif; 
   font-weight: bold;
 }
 
 .container {
   display: grid;
-  margin-top: 100px;
+  margin-top: 70px;
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(73px, 80px));
-  grid-auto-rows: 75px;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 53px));
+  grid-auto-rows: 50px;
   grid-auto-flow: dense;
   position: relative;
   justify-content: space-around;
-}
-
-.container::before,
-.container::after {
-  z-index: -1;
-  position: absolute;
-  content: '';
-  bottom: 1em;
-  width: 50%;
-  top: 80%;
-  background: #777;
-  box-shadow: 0 1em .5em #777;
-}
-
-.container::before {
-  transform: rotate(-3deg);
-  left: .5em;
-}
-
-.container::after {
-  transform: rotate(3deg);
-  right: .5em;
 }
 
 .container label {
@@ -128,11 +128,10 @@ body {
   height: 100%;
   text-align: center;
   vertical-align: middle;
-  font-size: 300%;
+  font-size: 200%;
   cursor: pointer;
   border: 1px solid #d0c6b3;
   border-radius: 100%;
-  position: relative;
   color: #544c3d;
 }
 
@@ -159,7 +158,6 @@ body {
 
 button[name="check"] {
   float: right;
-  font-size: 1.2em;
   margin-top: 2%;
   padding: 20px 80px;
   border-radius: 5px;
@@ -180,7 +178,7 @@ button[name="check"]:hover {
 #selection {
   display: grid;
   background-color: #F0EEEA;
-  margin-top: 8%;
+  margin-top: 5%;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -189,11 +187,11 @@ button[name="check"]:hover {
   color: #544c3d;
   padding: 50px;
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(75px, 78px));
-  grid-auto-rows: 75px;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 53px));
+  grid-auto-rows: 50px;
   grid-auto-flow: dense;
   position: relative;
-  min-height: 78px;
+  min-height: 50px;
 }
 
 #selection span {
@@ -202,7 +200,7 @@ button[name="check"]:hover {
   align-items: center;
   text-align: center;
   vertical-align: middle;
-  font-size: 300%;
+  font-size: 200%;
   border-radius: 100%;
   position: relative;
   height: 100%;
@@ -272,14 +270,13 @@ button[name="check"]:hover {
   background: #d0c6b3;
 }
 
-@media (max-width: 754px) {
+@media (max-width: 826px) {
   .container {
     margin-top: 80px;
   }
 
-  .container::before,
-  .container::after {
-    top: 92%;
+  .ticket {
+    padding: 5%;
   }
 }
 
@@ -304,10 +301,6 @@ button[name="check"]:hover {
 }
 
 @media (max-width: 515px) {
-  .ticket {
-    padding: 45px 30px;
-  }
-
   .container {
     margin-top: 50px;
   }
@@ -319,10 +312,6 @@ button[name="check"]:hover {
 }
 
 @media (max-width: 475px) {
-  .ticket {
-    padding: 30px;
-  }
-
   .ticket-header h1 {
     font-size: 1em;
   }
@@ -339,11 +328,6 @@ button[name="check"]:hover {
 }
 
 @media (max-width: 460px) {
-  .container::before, 
-  .container::after {
-    top: 97%;
-  }
-
   #dialogbox {
     width: 380px;
     margin: 0 0 0 -191px;
