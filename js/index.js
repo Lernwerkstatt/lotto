@@ -101,7 +101,29 @@ renderNumbersPool();
 const lotto = ['#charOne','#charTwo','#charThree','#charFour','#charFive']
 
 for (let i=0; i < 5; i++) {
-  let time = Math.random() * 10;
+  let time = Math.random() * 15;
   let spin = document.querySelector(lotto[i]);  
   spin.style.setProperty('--animation-time', time +'s');
+}
+
+var highscore = {
+  "Olzhas": 2,
+  "Tanja": 3,
+  "Azat": 2,
+  "Andreas": 1,
+  "Kumar": 4,
+  "Daniel": 1
+};
+
+
+
+function createHighscore() {
+  var orderedList = document.createElement("ol");  
+  for (let i = 0; i < 6; i++) {
+    var listElement = document.createElement("li");
+    listElement.setAttribute("key", i);
+    listElement.innerHTML = i;
+    orderedList.appendChild(listElement);
+  }  
+  return orderedList;
 }
