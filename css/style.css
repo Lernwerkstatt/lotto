@@ -71,24 +71,28 @@ body {
 
 }
 
-.ticket-header h1 .letter-l {
+.ticket-header h1 .letter:nth-child(1) {
   background-color: #BB1F13;
 }
 
-.ticket-header h1 .letter-o1 {
+.ticket-header h1 .letter:nth-child(2) {
   background-color: #001D48;
 }
 
-.ticket-header h1 .letter-t1 {
+.ticket-header h1 .letter:nth-child(3) {
   background-color: #E28028;
 }
 
-.ticket-header h1 .letter-t2 {
+.ticket-header h1 .letter:nth-child(4) {
   background-color: #549924;
 }
 
-.ticket-header h1 .letter-o2 {
+.ticket-header h1 .letter:nth-child(5) {
   background-color: #7C2172;
+}
+
+.ticket-header h1 .letter:nth-child(6) {
+  background-color: #7c2121;
 }
 
 .ticket-header h1 .name {
@@ -322,3 +326,56 @@ button[name="check"]:hover {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+/* About Us */
+
+.team-wrap {
+  background: url(../images/paper-bg.jpg), #F0EEEA;
+  padding: 3% 5%;
+  position: relative;
+  box-sizing: border-box;
+  color: #544c3d;
+}
+
+.team-wrap .container {
+  grid-gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 200px));
+  grid-auto-rows: 260px;
+}
+
+.team-wrap .container .team-member {
+  list-style-type: none;
+  text-align: center;
+}
+
+.team-wrap h1 .letter:nth-child(4) {
+  margin-right: 30px;;
+}
+
+.team-member img {
+  border-radius: 100%; 
+}
+
+.team-member p {
+  margin: 10px;
+}
+
+.team-member .name {
+  text-transform: capitalize;
+}
+
+.team-member .role {
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+
+.team-member .linkedin-link a {
+  color: #544c3d;
+}
+
+.team-member .linkedin-link a:hover {
+  color: #383229;
+  text-decoration: none;
+}
+
