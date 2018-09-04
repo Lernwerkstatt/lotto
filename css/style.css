@@ -7,7 +7,6 @@ body {
 
 .ticket-wrap {
   display: flex;
-  padding-bottom: 30px; 
 }
 
 .ticket {
@@ -129,6 +128,7 @@ body {
   grid-auto-flow: dense;
   position: relative;
   justify-content: space-around;
+  overflow: hidden;
 }
 
 .container label {
