@@ -6,7 +6,9 @@ body {
 }
 
 .ticket-wrap {
-  display: flex; 
+  display: flex;
+  overflow: hidden;
+  padding-bottom: 30px; 
 }
 
 .ticket {
@@ -99,6 +101,17 @@ body {
   display: block;
   font-size: 0.5em;
   margin: 20px;
+}
+
+.ticket-header h1 .name a {
+  display: block;
+  font-size: 0.75em;
+  margin: 10px;
+  color: #544c3d;
+}
+
+.ticket-header h1 .name a:hover {
+  text-decoration: none;
 }
 
 .ticket-header .rules {
