@@ -353,7 +353,7 @@ button[name="check"]:hover {
 .team-wrap .container {
   grid-gap: 50px;
   grid-template-columns: repeat(auto-fit, minmax(170px, 200px));
-  grid-auto-rows: 260px;
+  grid-auto-rows: auto;
 }
 
 .team-wrap .container .team-member {
