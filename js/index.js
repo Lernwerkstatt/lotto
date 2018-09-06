@@ -101,7 +101,7 @@ renderNumbersPool();
 const lotto = ['#charOne','#charTwo','#charThree','#charFour','#charFive']
 
 for (let i=0; i < 5; i++) {
-  let time = Math.random() * 10;
+  let time = (Math.random() + 2) * 4;
   let spin = document.querySelector(lotto[i]);  
   spin.style.setProperty('--animation-time', time +'s');
 }
