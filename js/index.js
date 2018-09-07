@@ -1,15 +1,15 @@
 function createNewElement(number) {
   var result = document.createElement("label");
   var newInput = document.createElement("input");
-  newInput.setAttribute("type", "checkbox");
+  newInput.setAttribute("type", "checkbox");  
   newInput.onclick = function () {
     if (this.checked) {
-      playSound("./sounds/tink.wav");
-      changeSelection(number);
+      playSound("./sounds/tink.wav");      
+      changeSelection(number, this.parentElement.parentElement.id);
       this.parentElement.classList.add("selected");
     } else {
       playSound("./sounds/kick.wav");
-      removeSelection(number);
+      removeSelection(number, this.parentElement.parentElement.id);
       this.parentElement.classList.remove("selected");
     }
   };
@@ -24,8 +24,21 @@ function createNewElement(number) {
   return result;
 }
 
-function changeSelection(number) {
-  var selection = document.getElementById("selection");
+function renderNumbersPool(id) {
+  var container = document.getElementById(id);
+  for (var i = 1; i < 50; i++) {
+    var element = createNewElement(i);
+    container.appendChild(element);
+  }
+}
+
+function changeSelection(number, id) {
+  if (id == 'playerOne') {
+    var selection = document.getElementById('selectionOne');
+  } else {
+    var selection = document.getElementById('selectionTwo');
+  }
+  
   var newSpan = document.createElement("span");
   newSpan.id = "selection-" + number;
   newSpan.innerHTML = number;
@@ -86,17 +99,9 @@ function CustomAlert() {
 }
 var Alert = new CustomAlert();
 
-
-function renderNumbersPool() {
-  var container = document.getElementById("container");
-  for (var i = 1; i < 50; i++) {
-    var element = createNewElement(i);
-    container.appendChild(element);
-  }
-}
-
 // Init
-renderNumbersPool();
+renderNumbersPool("playerOne");
+renderNumbersPool("playerTwo");
 
 const lotto = ['#charOne','#charTwo','#charThree','#charFour','#charFive']
 
@@ -104,4 +109,12 @@ for (let i=0; i < 5; i++) {
   let time = (Math.random() + 2) * 4;
   let spin = document.querySelector(lotto[i]);  
   spin.style.setProperty('--animation-time', time +'s');
+}
+
+function addTicket() {    
+  document.getElementById("ticketTwo").style.display = "flex";
+}
+
+function removeTicket() {
+  document.getElementById("ticketTwo").style.display = "none";
 }

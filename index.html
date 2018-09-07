@@ -31,11 +31,25 @@
         </h1>
         <p class="rules">Select 6 numbers, click "Check" and hope for the victory. Good luck!</p>
       </div>
-      <form class="container" id="container">
+      <form class="container" id="playerOne">
       </form>
     </div>
     <div class="selection-wrap">
-      <div id="selection"></div>
+      <div class="selection" id="selectionOne"></div>
+      <button type="button" name="check" onclick="checkboxes();">Check</button>
+    </div>
+  </div>
+  </div>
+  <button type="button" name="check" onclick="addTicket();">Add Player</button>
+  <button type="button" name="check" onclick="removeTicket();">Remove</button>
+  <br />
+  <br />
+  <div class="ticket-wrap" id="ticketTwo">
+    <div class="ticket">
+      <form class="container" id="playerTwo"></form>
+    </div>
+    <div class="selection-wrap">
+      <div class="selection" id="selectionTwo"></div>
       <button type="button" name="check" onclick="checkboxes();">Check</button>
     </div>
   </div>

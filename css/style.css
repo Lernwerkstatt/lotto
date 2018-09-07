@@ -193,7 +193,7 @@ button[name="check"]:hover {
   height: fit-content;
 }
 
-#selection {
+.selection {
   display: grid;
   background-color: #F0EEEA;
   justify-content: center;
@@ -213,7 +213,7 @@ button[name="check"]:hover {
   min-height: 400px;
 }
 
-#selection span {
+#selectionOne span, #selectionTwo span {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -391,3 +391,6 @@ button[name="check"]:hover {
   text-decoration: none;
 }
 
+#ticketTwo {
+  display: none;
+}
