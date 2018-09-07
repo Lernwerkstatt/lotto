@@ -101,17 +101,6 @@ body {
   margin: 20px;
 }
 
-.ticket-header h1 .name a {
-  display: block;
-  font-size: 0.75em;
-  margin: 10px;
-  color: #544c3d;
-}
-
-.ticket-header h1 .name a:hover {
-  text-decoration: none;
-}
-
 .ticket-header .rules {
   margin-top: 50px;
   font-size: 0.9em;
@@ -129,6 +118,7 @@ body {
   position: relative;
   justify-content: space-around;
   overflow: hidden;
+  padding-bottom: 5px;
 }
 
 .container label {
@@ -167,6 +157,17 @@ body {
   height: 100%;
 }
 
+.button-box {
+  margin-top: 2%;
+  width: 86.3%;
+}
+
+.button-box::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
 button[name="check"] {
   width: 134px;
   margin-top: 2%;
@@ -179,7 +180,20 @@ button[name="check"] {
   font-family: "Palatino Linotype", "Book Antiqua", serif;
 }
 
-button[name="check"]:hover {
+button[name="check"].about {
+  padding: 0;
+  float: right;
+}
+
+button[name="check"] a {
+  display: block;
+  padding: 20px 0px;
+  color: #544c3d;
+  text-decoration: none;
+}
+
+button[name="check"]:hover,
+button[name="check"] a:hover {
   color: #383229;
   border-color: #544c3d;
   background: #d0c6b3;

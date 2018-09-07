@@ -25,9 +25,7 @@
           <span class="letter" id="charThree">t</span>
           <span class="letter" id="charFour">t</span>
           <span class="letter" id="charFive">o</span>
-          <span class="name">Lernwerkstatt
-            <a href="./about.html">(Our Team)</a>
-          </span>
+          <span class="name">Die Lernwerkstatt</span>
         </h1>
         <p class="rules">Select 6 numbers, click "Check" and hope for the victory. Good luck!</p>
       </div>
@@ -36,14 +34,15 @@
     </div>
     <div class="selection-wrap">
       <div class="selection" id="selectionOne"></div>
-      <button type="button" name="check" onclick="checkboxes();">Check</button>
+      <button type="button" name="check" class="check" onclick="checkboxes();">Check</button>
     </div>
   </div>
   </div>
-  <button type="button" name="check" onclick="addTicket();">Add Player</button>
-  <button type="button" name="check" onclick="removeTicket();">Remove</button>
-  <br />
-  <br />
+  <div class="button-box">
+    <button type="button" name="check" class="addTicket" onclick="addTicket();">Add Player</button>
+    <button type="button" name="check" class="removeTicket" onclick="removeTicket();">Remove</button>
+    <button type="button" name="check" class="about"><a href="./about.html">Our Team</a></button>
+  </div>
   <div class="ticket-wrap" id="ticketTwo">
     <div class="ticket">
       <form class="container" id="playerTwo"></form>
