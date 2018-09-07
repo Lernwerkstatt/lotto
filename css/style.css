@@ -118,7 +118,7 @@ body {
   position: relative;
   justify-content: space-around;
   overflow: hidden;
-  padding-bottom: 5px;
+  padding-bottom: 25px;
 }
 
 .container label {
