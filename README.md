@@ -1,4 +1,4 @@
 # lotto
-Lotto game
+Lotto Game
 
 https://lernwerkstatt-lottogame.azurewebsites.net/
