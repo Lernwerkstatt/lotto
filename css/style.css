@@ -95,6 +95,10 @@ body {
   background-color: #7c2121;
 }
 
+.ticket-header h1 .letter:nth-child(7) {
+  background-color: #9933ff;
+}
+
 .ticket-header h1 .name {
   display: block;
   font-size: 0.5em;
@@ -376,7 +380,7 @@ button[name="check"] a:hover {
   text-align: center;
 }
 
-.team-wrap h1 .letter:nth-child(4) {
+.team-wrap h1 .letter:nth-child(5) {
   margin-right: 30px;;
 }
 
