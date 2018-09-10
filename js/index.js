@@ -114,6 +114,7 @@ for (let i = 0; i < 5; i++) {
 }
 
 function buyTicket() {
+    
   name = ""
   while (name === "") {
     name = prompt('Please enter your name:')
@@ -125,6 +126,7 @@ function buyTicket() {
     activateCheckButton.setAttribute('onclick', 'checkboxes()')
     buy.setAttribute('id', 'boughtTicket')
     buy.innerHTML = 'Ticket bought'
+    buy.setAttribute('onclick','')
   }
 }
 
