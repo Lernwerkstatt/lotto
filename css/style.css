@@ -413,3 +413,15 @@ button[name="check"] a:hover {
 #ticketTwo {
   display: none;
 }
+
+#boughtTicket {
+  width: 134px;
+  margin-top: 2%;
+  padding: 20px 0px;
+  border-radius: 5px;
+  background: rgb(202, 122, 17);
+  color: #544c3d;
+  border: 1px solid #d0c6b3;
+  text-transform: uppercase;
+  font-family: "Palatino Linotype", "Book Antiqua", serif;
+}
