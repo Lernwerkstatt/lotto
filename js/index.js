@@ -133,7 +133,7 @@ function buyTicket() {
 }
 
 var xmlhttp = new XMLHttpRequest();
-var url = "https://lwssave.blob.core.windows.net/highscore/highscore.json?sp=rw&st=2018-09-10T13:45:04Z&se=2018-11-11T22:45:04Z&sip=193.175.67.145&spr=https&sv=2017-11-09&sig=%2BozkMn55VWKvQgCyNedK11uRstPmBINq%2By7QFKigtnc%3D&sr=b";
+var url = "https://lwssave.blob.core.windows.net/highscore/highscore.json";
 
 xmlhttp.onreadystatechange = function () {
   if (this.readyState == 4 && this.status == 200) {
