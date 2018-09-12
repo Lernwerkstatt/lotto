@@ -73,14 +73,18 @@ function checkboxes() {
   if (count !== 6) {
     playSound("./sounds/mistake.wav");
     Alert.render("Please select exactly 6 numbers");
+    
   }
   else {
     let rightNumbers = generateLottoArray(6, 1, 49).sort((a, b) => a - b);
+    let rightGuesses = numberOfCorrectGuesses(selectedNumber, rightNumbers)
+    
     playSound("./sounds/openhat.wav");
-    Alert.render("Following numbers were drawn. " + rightNumbers + "<br />" + name + " You have " + numberOfCorrectGuesses(selectedNumber, rightNumbers) + " number(s) guessed right.");
+    Alert.render("Following numbers were drawn. " + rightNumbers + "<br />" + name + " You have " + rightGuesses + " number(s) guessed right.");
+    Alert.ok = function() {
+      location.reload()
+    }       
   }
-  document.getElementById('boughtTicket').setAttribute('id', 'buyTicket')
-
 }
 
 function CustomAlert() {
@@ -95,15 +99,13 @@ function CustomAlert() {
 
   this.ok = function () {
     document.getElementById('dialogbox').style.display = "none";
-    document.getElementById('dialogoverlay').style.display = "none";
-    location.reload();
+    document.getElementById('dialogoverlay').style.display = "none";    
   }
 }
 var Alert = new CustomAlert();
 
 // Init
 renderNumbersPool("playerOne");
-//renderNumbersPool("playerTwo");
 
 const lotto = ['#charOne', '#charTwo', '#charThree', '#charFour', '#charFive']
 
@@ -114,7 +116,7 @@ for (let i = 0; i < 5; i++) {
 }
 
 function buyTicket() {
-    
+
   name = ""
   while (name === "") {
     name = prompt('Please enter your name:')
@@ -126,7 +128,34 @@ function buyTicket() {
     activateCheckButton.setAttribute('onclick', 'checkboxes()')
     buy.setAttribute('id', 'boughtTicket')
     buy.innerHTML = 'Ticket bought'
-    buy.setAttribute('onclick','')
+    buy.setAttribute('onclick', '')
   }
+}
+
+var xmlhttp = new XMLHttpRequest();
+var url = "https://lwssave.blob.core.windows.net/highscore/highscore.json?sp=rw&st=2018-09-10T13:45:04Z&se=2018-11-11T22:45:04Z&sip=193.175.67.145&spr=https&sv=2017-11-09&sig=%2BozkMn55VWKvQgCyNedK11uRstPmBINq%2By7QFKigtnc%3D&sr=b";
+
+xmlhttp.onreadystatechange = function () {
+  if (this.readyState == 4 && this.status == 200) {
+    myArr = JSON.parse(this.responseText);
+    createHighscore(myArr);
+  }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+function createHighscore(arr) {
+  let high = document.getElementById('highscore')
+  let sortable = Object.entries(arr)
+
+  sortable.sort(function (a, b) {
+    return b[1] - a[1];
+  })
+
+  sortable.forEach((element) => {
+    let newList = document.createElement("li");
+    newList.innerHTML = element[0] + " " + element[1];
+    high.appendChild(newList)
+  })
 }
 
