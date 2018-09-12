@@ -78,7 +78,7 @@ function checkboxes() {
   else {
     let rightNumbers = generateLottoArray(6, 1, 49).sort((a, b) => a - b);
     let rightGuesses = numberOfCorrectGuesses(selectedNumber, rightNumbers)
-    
+    add(name, rightGuesses)
     playSound("./sounds/openhat.wav");
     Alert.render("Following numbers were drawn. " + rightNumbers + "<br />" + name + " You have " + rightGuesses + " number(s) guessed right.");
     Alert.ok = function() {
@@ -132,18 +132,6 @@ function buyTicket() {
   }
 }
 
-var xmlhttp = new XMLHttpRequest();
-var url = "https://lwssave.blob.core.windows.net/highscore/highscore.json";
-
-xmlhttp.onreadystatechange = function () {
-  if (this.readyState == 4 && this.status == 200) {
-    myArr = JSON.parse(this.responseText);
-    createHighscore(myArr);
-  }
-};
-xmlhttp.open("GET", url, true);
-xmlhttp.send();
-
 function createHighscore(arr) {
   let high = document.getElementById('highscore')
   let sortable = Object.entries(arr)
@@ -154,7 +142,7 @@ function createHighscore(arr) {
 
   sortable.forEach((element) => {
     let newList = document.createElement("li");
-    newList.innerHTML = element[0] + " " + element[1];
+    newList.innerHTML = element[0] + " " + element[1] + " " + element[2];
     high.appendChild(newList)
   })
 }
