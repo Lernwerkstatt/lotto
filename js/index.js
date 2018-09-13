@@ -77,8 +77,12 @@ function checkboxes() {
   }
   else {
     let rightNumbers = generateLottoArray(6, 1, 49).sort((a, b) => a - b);
-    let rightGuesses = numberOfCorrectGuesses(selectedNumber, rightNumbers)
-    add(name, rightGuesses)
+    let rightGuesses = numberOfCorrectGuesses(selectedNumber, rightNumbers)    
+    
+    if (Number(localStorage.name) < rightGuesses || !localStorage.name) {
+      localStorage.setItem(name, rightGuesses);
+    }
+    
     playSound("./sounds/openhat.wav");
     Alert.render("Following numbers were drawn. " + rightNumbers + "<br />" + name + " You have " + rightGuesses + " number(s) guessed right.");
     Alert.ok = function() {
@@ -120,6 +124,7 @@ function buyTicket() {
   name = ""
   while (name === "") {
     name = prompt('Please enter your name:')
+    name = name.charAt(0).toUpperCase() + name.substr(1);
   }
 
   if (name !== "null") {
@@ -132,21 +137,9 @@ function buyTicket() {
   }
 }
 
-var xmlhttp = new XMLHttpRequest();
-var url = "https://lwssave.blob.core.windows.net/highscore/highscore.json";
-
-xmlhttp.onreadystatechange = function () {
-  if (this.readyState == 4 && this.status == 200) {
-    myArr = JSON.parse(this.responseText);
-    createHighscore(myArr);
-  }
-};
-xmlhttp.open("GET", url, true);
-xmlhttp.send();
-
-function createHighscore(arr) {
+function createHighscore(localStorage) {
   let high = document.getElementById('highscore')
-  let sortable = Object.entries(arr)
+  let sortable = Object.entries(localStorage)
 
   sortable.sort(function (a, b) {
     return b[1] - a[1];
@@ -159,3 +152,4 @@ function createHighscore(arr) {
   })
 }
 
+createHighscore(localStorage)
