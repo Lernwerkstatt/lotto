@@ -338,15 +338,6 @@ button[name="check"] a:hover {
     display: none;
   }
 
-  .ticket-header h1 {
-    font-size: 1em;
-  }
-
-  .ticket-header .rules {
-    margin-top: 40px;
-    font-size: 0.7em;
-  }
-
   .container {
     margin-top: 60px;
   }
