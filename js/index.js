@@ -132,6 +132,18 @@ function buyTicket() {
   }
 }
 
+var xmlhttp = new XMLHttpRequest();
+var url = "https://lwssave.blob.core.windows.net/highscore/highscore.json";
+
+xmlhttp.onreadystatechange = function () {
+  if (this.readyState == 4 && this.status == 200) {
+    myArr = JSON.parse(this.responseText);
+    createHighscore(myArr);
+  }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
 function createHighscore(arr) {
   let high = document.getElementById('highscore')
   let sortable = Object.entries(arr)
@@ -142,7 +154,7 @@ function createHighscore(arr) {
 
   sortable.forEach((element) => {
     let newList = document.createElement("li");
-    newList.innerHTML = element[0] + " " + element[1] + " " + element[2];
+    newList.innerHTML = element[0] + " " + element[1];
     high.appendChild(newList)
   })
 }
