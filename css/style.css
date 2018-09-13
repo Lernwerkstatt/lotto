@@ -308,7 +308,7 @@ button[name="check"] a:hover {
   background: #d0c6b3;
 }
 
-@media (max-width: 826px) {
+@media all and (max-width: 826px) {
   .container {
     margin-top: 80px;
   }
@@ -318,7 +318,7 @@ button[name="check"] a:hover {
   }
 }
 
-@media (max-width: 633px) {
+@media all and (max-width: 633px) {
 
   body {
     padding: 30px;
