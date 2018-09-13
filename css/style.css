@@ -9,6 +9,10 @@ body {
   display: flex;
 }
 
+.ticket-box {
+  display: flex;
+}
+
 .ticket {
   background: url("../images/paper-bg.jpg"), #F0EEEA;
   padding: 3% 5%;
@@ -105,6 +109,15 @@ body {
   margin: 20px;
 }
 
+.ticket-header h1 .name a {
+  display: block;
+  color: #0f8f5e;
+}
+
+.ticket-header h1 .name a:hover {
+  text-decoration: none;
+}
+
 .ticket-header .rules {
   margin-top: 50px;
   font-size: 0.9em;
@@ -162,17 +175,6 @@ body {
   height: 100%;
 }
 
-.button-box {
-  margin-top: 2%;
-  width: 86.3%;
-}
-
-.button-box::after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
 button[name="check"] {
   width: 134px;
   margin-top: 2%;
@@ -183,11 +185,6 @@ button[name="check"] {
   border: 1px solid #d0c6b3;
   text-transform: uppercase;
   font-family: "Palatino Linotype", "Book Antiqua", serif;
-}
-
-button[name="check"].about {
-  padding: 0;
-  float: right;
 }
 
 button[name="check"] a {
