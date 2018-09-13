@@ -4,6 +4,7 @@ body {
   margin: 0px;
   font-family: "Times New Roman", Times, serif;
   box-sizing: border-box;
+  justify-content: stretch;
 }
 
 .ticket-wrap {
