@@ -3,10 +3,14 @@ body {
   padding: 50px;
   margin: 0px;
   font-family: "Times New Roman", Times, serif;
+  box-sizing: border-box;
+  justify-content: stretch;
 }
 
 .ticket-wrap {
   display: flex;
+  align-items: stretch;
+  flex-direction: column;
 }
 
 .ticket-box {
@@ -305,7 +309,7 @@ button[name="check"] a:hover {
   background: #d0c6b3;
 }
 
-@media (max-width: 826px) {
+@media all and (max-width: 826px) {
   .container {
     margin-top: 80px;
   }
@@ -315,10 +319,19 @@ button[name="check"] a:hover {
   }
 }
 
-@media (max-width: 633px) {
+@media all and (max-width: 633px) {
 
   body {
     padding: 30px;
+  }
+
+  .ticket-box {
+    flex-direction: column;
+  }
+
+  .ticket {
+    margin-right: 0;
+    width: 100%;
   }
 
   .ticket::before,
@@ -326,17 +339,20 @@ button[name="check"] a:hover {
     display: none;
   }
 
-  .ticket-header h1 {
-    font-size: 1em;
-  }
-
-  .ticket-header .rules {
-    margin-top: 40px;
-    font-size: 0.7em;
-  }
-
   .container {
     margin-top: 60px;
+  }
+
+  .selection-wrap {
+    width: 100%;
+    position: relative;
+  }
+
+  .selection {
+    width: 100%;
+    min-height: auto;
+    box-sizing: border-box;
+    margin-top: 20px;
   }
 
   #dialogbox {
