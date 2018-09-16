@@ -77,6 +77,7 @@ function checkboxes(numberOfRuns) {
   if (count !== 6) {
     playSound("./sounds/mistake.wav");
     Alert.render("Please select exactly 6 numbers");
+    document.querySelectorAll("#numberOfTickets option")[0].removeAttribute("selected","");
     document.querySelectorAll("#numberOfTickets option")[0].setAttribute("selected","");
   }
   else {
@@ -172,6 +173,7 @@ function numberOfTickets() {
     activateCheckButton.setAttribute('onclick', checkboxes(selectedValue));
   } else {
     alert('Please buy a ticket!');
+    document.querySelectorAll("#numberOfTickets option")[0].removeAttribute("selected","");
     document.querySelectorAll("#numberOfTickets option")[0].setAttribute("selected","");
   }    
 }
