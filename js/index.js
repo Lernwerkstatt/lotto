@@ -170,7 +170,8 @@ function numberOfTickets() {
   let activateCheckButton = document.getElementById('checkButton');  
 
   if (document.getElementById('boughtTicket')) {
-    activateCheckButton.setAttribute('onclick', checkboxes(selectedValue));
+    //activateCheckButton.setAttribute('onclick', checkboxes(selectedValue));
+    activateCheckButton.addEventListener("click", checkboxes.bind(null, selectedValue));
   } else {
     alert('Please buy a ticket!');
     document.querySelectorAll("#numberOfTickets option")[0].removeAttribute("selected","");
