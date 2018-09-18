@@ -440,6 +440,24 @@ button[name="check"] a:hover {
   }
 }
 
+@media all and (max-width: 500px) {
+  .team-wrap h1 {
+    font-size: 1.5em;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .team-wrap h1 {
+    font-size: 1.3em;
+  }
+}
+
+@media all and (max-width: 350px) {
+  .team-wrap h1 {
+    font-size: 1.1em;
+  }
+}
+
 #charOne, #charTwo, #charThree, #charFour, #charFive {
   animation: char-spin infinite var(--animation-time) linear;
   
@@ -464,7 +482,7 @@ button[name="check"] a:hover {
 .team-wrap .container {
   grid-gap: 50px;
   grid-template-columns: repeat(auto-fit, minmax(170px, 200px));
-  grid-auto-rows: auto;
+  grid-auto-rows: max-content;
 }
 
 .team-wrap .container .team-member {
