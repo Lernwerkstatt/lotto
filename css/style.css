@@ -181,6 +181,8 @@ body {
   text-transform: uppercase;
   font-family: "Palatino Linotype", "Book Antiqua", serif;
   padding: 20px;
+  box-sizing: border-box;
+  width: 77%;
 }
 
 button[name="check"] {
@@ -213,17 +215,21 @@ button[name="check"] a:hover {
 
 .button-box button[name="check"] {
   margin-top: 0;
-  color: rgba(158, 53, 53, 0.8);
+  color: rgba(158, 53, 53);
 }
 
 .button-box .select-box {
-  max-width: 30%;
-  margin-right: 2%;
+  max-width: 390px;
+  margin-right: 20px;
 }
 
 .button-box .select-box select {
-  color: rgba(158, 53, 53, 0.8);
+  color: rgba(158, 53, 53);
   outline: none;
+  height: 2em;
+  line-height: 2em;
+  width: 80px;
+  cursor: pointer;
 }
 
 .button-box p {
@@ -374,13 +380,21 @@ button[name="check"] a:hover {
   background: #d0c6b3;
 }
 
-@media all and (max-width: 826px) {
+@media all and (max-width: 830px) {
   .container {
     margin-top: 80px;
   }
 
   .ticket {
     padding: 5%;
+  }
+
+  .button-box {
+    justify-content: space-between;
+  }
+
+  .button-box .select-box {
+    max-width: 70%;
   }
 }
 
