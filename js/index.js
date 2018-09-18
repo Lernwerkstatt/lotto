@@ -1,3 +1,7 @@
+createHighscore(localStorage);
+renderNumbersPool("playerOne");
+generateLottoAnimation();
+
 function createNewElement(number) {
   var result = document.createElement("label");
   var newInput = document.createElement("input");
@@ -59,7 +63,7 @@ function playSound(path) {
   audioElement.play();
 }
 
-function checkboxes() {
+function checkboxes(numberOfRuns) {
   var inputElems = document.getElementsByTagName("input");
   var count = 0;
   console.log(inputElems);
@@ -73,21 +77,32 @@ function checkboxes() {
   if (count !== 6) {
     playSound("./sounds/mistake.wav");
     Alert.render("Please select exactly 6 numbers");
-    
+    document.querySelectorAll("#numberOfTickets option")[0].removeAttribute("selected","");
+    document.querySelectorAll("#numberOfTickets option")[0].setAttribute("selected","");
   }
   else {
-    let rightNumbers = generateLottoArray(6, 1, 49).sort((a, b) => a - b);
-    let rightGuesses = numberOfCorrectGuesses(selectedNumber, rightNumbers)    
-    
-    if (Number(localStorage.name) < rightGuesses || !localStorage.name) {
-      localStorage.setItem(name, rightGuesses);
+    let max = 0;
+    let drawnNumberArray = [];
+
+    for (let i = 0; i < numberOfRuns; i++) {
+      let rightNumbers = generateLottoArray(6, 1, 49).sort((a, b) => a - b);
+      let rightGuesses = numberOfCorrectGuesses(selectedNumber, rightNumbers);
+
+      if (rightGuesses > max) {
+        max = rightGuesses;
+        drawnNumberArray[0] = rightNumbers;
+      }
+
     }
-    
+    if (Number(localStorage.name) < max || !localStorage.name) {
+      localStorage.setItem(name, max);
+    }
     playSound("./sounds/openhat.wav");
-    Alert.render("Following numbers were drawn. " + rightNumbers + "<br />" + name + " You have " + rightGuesses + " number(s) guessed right.");
-    Alert.ok = function() {
+    Alert.render("Following numbers were drawn. " + drawnNumberArray + "<br />" + name + " You have " + max + " number(s) guessed right.");
+    Alert.ok = function () {
       location.reload()
-    }       
+    }
+
   }
 }
 
@@ -103,20 +118,19 @@ function CustomAlert() {
 
   this.ok = function () {
     document.getElementById('dialogbox').style.display = "none";
-    document.getElementById('dialogoverlay').style.display = "none";    
+    document.getElementById('dialogoverlay').style.display = "none";
   }
 }
 var Alert = new CustomAlert();
 
-// Init
-renderNumbersPool("playerOne");
+function generateLottoAnimation() {
+  const lotto = ['#charOne', '#charTwo', '#charThree', '#charFour', '#charFive']
 
-const lotto = ['#charOne', '#charTwo', '#charThree', '#charFour', '#charFive']
-
-for (let i = 0; i < 5; i++) {
-  let time = (Math.random() + 2) * 4
-  let spin = document.querySelector(lotto[i]);
-  spin.style.setProperty('--animation-time', time + 's')
+  for (let i = 0; i < 5; i++) {
+    let time = (Math.random() + 2) * 4
+    let spin = document.querySelector(lotto[i]);
+    spin.style.setProperty('--animation-time', time + 's')
+  }
 }
 
 function buyTicket() {
@@ -129,8 +143,6 @@ function buyTicket() {
 
   if (name !== "null") {
     let buy = document.getElementById('buyTicket')
-    let activateCheckButton = document.getElementById('checkButton')
-    activateCheckButton.setAttribute('onclick', 'checkboxes()')
     buy.setAttribute('id', 'boughtTicket')
     buy.innerHTML = 'Ticket bought'
     buy.setAttribute('onclick', '')
@@ -152,4 +164,18 @@ function createHighscore(localStorage) {
   })
 }
 
-createHighscore(localStorage)
+function numberOfTickets() {
+  let selectBox = document.getElementById("numberOfTickets");
+  let selectedValue = selectBox.options[selectBox.selectedIndex].value;
+  let activateCheckButton = document.getElementById('checkButton');  
+
+  if (document.getElementById('boughtTicket')) {
+    //activateCheckButton.setAttribute('onclick', checkboxes(selectedValue));
+    activateCheckButton.addEventListener("click", checkboxes.bind(null, selectedValue));
+  } else {
+    alert('Please buy a ticket!');
+    document.querySelectorAll("#numberOfTickets option")[0].removeAttribute("selected","");
+    document.querySelectorAll("#numberOfTickets option")[0].setAttribute("selected","");
+  }    
+}
+

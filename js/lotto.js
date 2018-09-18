@@ -9,7 +9,7 @@ function numberOfCorrectGuesses(userArray, lottoArray) {
       result++
     }
   }
-  console.log(guessedNumbers);
+  //console.log(guessedNumbers);
   return result;
 }
 
@@ -33,7 +33,7 @@ function test(expected, actual) {
   }
 }
 
-test(2, numberOfCorrectGuesses([1, 2], [1, 2]));
+/* test(2, numberOfCorrectGuesses([1, 2], [1, 2]));
 test(0, numberOfCorrectGuesses([1, 2, 3], [4, 5, 6]));
 test(1, numberOfCorrectGuesses([1, 2, 3], [7, 2, 4]));
-test(3, numberOfCorrectGuesses([1, 2, 3], [3, 2, 1]));
+test(3, numberOfCorrectGuesses([1, 2, 3], [3, 2, 1])); */
