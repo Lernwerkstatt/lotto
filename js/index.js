@@ -66,24 +66,26 @@ function playSound(path) {
 function checkboxes(numberOfRuns) {
   var inputElems = document.getElementsByTagName("input");
   var count = 0;
-  console.log(inputElems);
   var selectedNumber = [];
+  let checked = document.getElementById("checker");
+
   for (var i = 0; i < inputElems.length; i++) {
     if (inputElems[i].type === "checkbox" && inputElems[i].checked === true) {
       count++;
       selectedNumber.push(parseInt(inputElems[i].getAttribute('data-number')));
     }
   }
+
+
   if (count !== 6) {
     playSound("./sounds/mistake.wav");
     Alert.render("Please select exactly 6 numbers");
-    document.querySelectorAll("#numberOfTickets option")[0].removeAttribute("selected","");
-    document.querySelectorAll("#numberOfTickets option")[0].setAttribute("selected","");
+    document.querySelectorAll("#numberOfTickets option")[0].removeAttribute("selected", "");
+    document.querySelectorAll("#numberOfTickets option")[0].setAttribute("selected", "");
   }
   else {
-    let max = 0;
+    let max = -1;
     let drawnNumberArray = [];
-
     for (let i = 0; i < numberOfRuns; i++) {
       let rightNumbers = generateLottoArray(6, 1, 49).sort((a, b) => a - b);
       let rightGuesses = numberOfCorrectGuesses(selectedNumber, rightNumbers);
@@ -92,10 +94,12 @@ function checkboxes(numberOfRuns) {
         max = rightGuesses;
         drawnNumberArray[0] = rightNumbers;
       }
-
     }
-    if (Number(localStorage.name) < max || !localStorage.name) {
-      localStorage.setItem(name, max);
+
+    if (checked.getAttribute("checked") !== "") {
+      if (Number(localStorage.name) < max || !localStorage.name) {
+        localStorage.setItem(name, max);
+      }
     }
     playSound("./sounds/openhat.wav");
     Alert.render("Following numbers were drawn. " + drawnNumberArray + "<br />" + name + " You have " + max + " number(s) guessed right.");
@@ -133,22 +137,6 @@ function generateLottoAnimation() {
   }
 }
 
-function buyTicket() {
-
-  name = ""
-  while (name === "") {
-    name = prompt('Please enter your name:')
-    name = name.charAt(0).toUpperCase() + name.substr(1);
-  }
-
-  if (name !== "null") {
-    let buy = document.getElementById('buyTicket')
-    buy.setAttribute('id', 'boughtTicket')
-    buy.innerHTML = 'Ticket bought'
-    buy.setAttribute('onclick', '')
-  }
-}
-
 function createHighscore(localStorage) {
   let high = document.getElementById('highscore')
   let sortable = Object.entries(localStorage)
@@ -164,31 +152,54 @@ function createHighscore(localStorage) {
   })
 }
 
+function buyTicket() {
+  let activateCheckButton = document.getElementById('checkButton');
+  name = ""
+  while (name === "") {
+    name = prompt('Please enter your name:')
+    name = name.charAt(0).toUpperCase() + name.substr(1);
+  }
+
+
+  if (name !== "" && name !== "Null") {
+    let buy = document.getElementById('buyTicket')
+
+    buy.setAttribute('id', 'boughtTicket')
+    buy.innerHTML = 'Ticket bought'
+    buy.setAttribute('onclick', '')
+    activateCheckButton.addEventListener("click", checkboxes.bind(null, 1));
+  }
+}
+
 function numberOfTickets() {
   let selectBox = document.getElementById("numberOfTickets");
   let selectedValue = selectBox.options[selectBox.selectedIndex].value;
-  let activateCheckButton = document.getElementById('checkButton');  
+  let activateCheckButton = document.getElementById('checkButton');
 
-  if (document.getElementById('boughtTicket')) {
-    //activateCheckButton.setAttribute('onclick', checkboxes(selectedValue));
-    activateCheckButton.addEventListener("click", checkboxes.bind(null, selectedValue));
-  } else {
-    alert('Please buy a ticket!');
-    document.querySelectorAll("#numberOfTickets option")[0].removeAttribute("selected","");
-    document.querySelectorAll("#numberOfTickets option")[0].setAttribute("selected","");
-  }    
+  //activateCheckButton.setAttribute('onclick', checkboxes(selectedValue));
+  activateCheckButton.addEventListener("click", checkboxes.bind(null, selectedValue));
+
+  document.querySelectorAll("#numberOfTickets option")[0].removeAttribute("selected", "");
+  document.querySelectorAll("#numberOfTickets option")[0].setAttribute("selected", "");
+
 }
 
 function changeMode() {
   let checked = document.getElementById("checker");
+  let probability = document.getElementById("probability");
+  let buyTicket = document.getElementById("buyTicket");
   let switchMode = document.getElementById("switchMode");
+
   if (checked.getAttribute("checked") == "") {
     checked.removeAttribute("checked");
-    switchMode.innerHTML = "Mutliplayer Mode active"
+    probability.style.display = "none";
+    buyTicket.style.display = "inline-block";
+    switchMode.innerHTML = "Mutliplayer Mode active";
 
   } else {
     checked.setAttribute("checked", "");
     switchMode.innerHTML = "Probability Mode active"
-
+    probability.style.display = "inline-block";
+    buyTicket.style.display = "none";
   }
 }
