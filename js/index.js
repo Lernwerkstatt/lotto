@@ -68,14 +68,17 @@ function checkboxes(numberOfRuns) {
   var count = 0;
   var selectedNumber = [];
   let checked = document.getElementById("checker");
-
+  
+  console.log(inputElems.length)
   for (var i = 0; i < inputElems.length; i++) {
-    if (inputElems[i].type === "checkbox" && inputElems[i].checked === true) {
+    if (inputElems[i].type === "checkbox" && inputElems[i].checked === true && inputElems[i].hasAttribute("data-number")) {
+      
       count++;
       selectedNumber.push(parseInt(inputElems[i].getAttribute('data-number')));
+      console.log(inputElems[i])
     }
   }
-
+  
 
   if (count !== 6) {
     playSound("./sounds/mistake.wav");
@@ -163,7 +166,9 @@ function buyTicket() {
 
   if (name !== "" && name !== "Null") {
     let buy = document.getElementById('buyTicket')
+    let switchdiv = document.getElementById('switchdiv')
 
+    switchdiv.style.display = "none"
     buy.setAttribute('id', 'boughtTicket')
     buy.innerHTML = 'Ticket bought'
     buy.setAttribute('onclick', '')
@@ -179,8 +184,8 @@ function numberOfTickets() {
   //activateCheckButton.setAttribute('onclick', checkboxes(selectedValue));
   activateCheckButton.addEventListener("click", checkboxes.bind(null, selectedValue));
 
-  document.querySelectorAll("#numberOfTickets option")[0].removeAttribute("selected", "");
-  document.querySelectorAll("#numberOfTickets option")[0].setAttribute("selected", "");
+  //document.querySelectorAll("#numberOfTickets option")[0].removeAttribute("selected", "");
+  //document.querySelectorAll("#numberOfTickets option")[0].setAttribute("selected", "");
 
 }
 
