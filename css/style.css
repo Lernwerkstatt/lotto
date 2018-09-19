@@ -180,8 +180,6 @@ body {
   color: #F0EEEA;
   text-transform: uppercase;
   font-family: "Palatino Linotype", "Book Antiqua", serif;
-  padding: 20px;
-  box-sizing: border-box;
   width: 77%;
 }
 
@@ -221,6 +219,10 @@ button[name="check"] a:hover {
 .button-box .select-box {
   max-width: 390px;
   margin-right: 20px;
+}
+
+.button-box #switchdiv {
+  margin-right: 40px;
 }
 
 .button-box .select-box select {
@@ -389,13 +391,6 @@ button[name="check"] a:hover {
     padding: 5%;
   }
 
-  .button-box {
-    justify-content: space-between;
-  }
-
-  .button-box .select-box {
-    max-width: 70%;
-  }
 }
 
 @media all and (max-width: 633px) {
@@ -437,6 +432,11 @@ button[name="check"] a:hover {
   #dialogbox {
     width: 420px;
     margin: 0 0 0 -211px;
+  }
+
+  .button-box {
+    justify-content: space-between;
+    width: 100%;
   }
 }
 
@@ -538,7 +538,9 @@ button[name="check"] a:hover {
   height: 34px;
 }
 
-.switch input {display:none;}
+.switch input {
+  display: none;
+}
 
 .slider {
   position: absolute;
@@ -565,11 +567,11 @@ button[name="check"] a:hover {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: rgba(158, 53, 53);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px rgba(158, 53, 53);
 }
 
 input:checked + .slider:before {
