@@ -41,26 +41,35 @@
   </div>
   </div>
   </div>
+  <div>
+    <p id="switchMode">
+      Multiplayer Mode active
+    </p>
+    <label class="switch">
+      <input id="checker" type="checkbox" onclick="changeMode();">
+      <span class="slider round"></span>
+    </label>
+  </div>
   <div class="button-box">
     <div class="select-box">
-        <p>Select how many rounds do you wanna play.</p>
-        <select id="numberOfTickets" onchange="numberOfTickets();">
-          <option id="selected" value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="1000">1000</option>
-          <option value="100000">100000</option>
-        </select>
+      <p>Select how many rounds do you wanna play.</p>
+      <select id="numberOfTickets" onchange="numberOfTickets();">
+        <option id="selected" value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="1000">1000</option>
+        <option value="100000">100000</option>
+      </select>
     </div>
-      <button type="button" name="check" id="buyTicket" onclick="buyTicket();">Buy a ticket</button>
+    <button type="button" name="check" id="buyTicket" onclick="buyTicket();">Buy a ticket</button>
   </div>
   <ol class="highscore" id="highscore">
     <h2>Highscore:</h2>

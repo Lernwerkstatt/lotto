@@ -179,3 +179,16 @@ function numberOfTickets() {
   }    
 }
 
+function changeMode() {
+  let checked = document.getElementById("checker");
+  let switchMode = document.getElementById("switchMode");
+  if (checked.getAttribute("checked") == "") {
+    checked.removeAttribute("checked");
+    switchMode.innerHTML = "Mutliplayer Mode active"
+
+  } else {
+    checked.setAttribute("checked", "");
+    switchMode.innerHTML = "Probability Mode active"
+
+  }
+}
