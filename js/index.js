@@ -194,17 +194,20 @@ function changeMode() {
   let probability = document.getElementById("probability");
   let buyTicket = document.getElementById("buyTicket");
   let switchMode = document.getElementById("switchMode");
+  let highscore = document.getElementById("highscore");
 
   if (checked.getAttribute("checked") == "") {
     checked.removeAttribute("checked");
     probability.style.display = "none";
     buyTicket.style.display = "inline-block";
     switchMode.innerHTML = "Mutliplayer Mode active";
+    highscore.style.display = "block";
 
   } else {
     checked.setAttribute("checked", "");
     switchMode.innerHTML = "Probability Mode active"
     probability.style.display = "inline-block";
     buyTicket.style.display = "none";
+    highscore.style.display = "none";
   }
 }
