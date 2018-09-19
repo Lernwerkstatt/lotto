@@ -68,17 +68,19 @@ function checkboxes(numberOfRuns) {
   var count = 0;
   var selectedNumber = [];
   let checked = document.getElementById("checker");
-  
-  console.log(inputElems.length)
+  let boughtTicket = document.getElementById("boughtTicket");
+  let three = 0;
+  let four = 0;
+  let five = 0;
+  let six = 0;
+
   for (var i = 0; i < inputElems.length; i++) {
     if (inputElems[i].type === "checkbox" && inputElems[i].checked === true && inputElems[i].hasAttribute("data-number")) {
-      
       count++;
       selectedNumber.push(parseInt(inputElems[i].getAttribute('data-number')));
-      console.log(inputElems[i])
     }
   }
-  
+
 
   if (count !== 6) {
     playSound("./sounds/mistake.wav");
@@ -93,6 +95,21 @@ function checkboxes(numberOfRuns) {
       let rightNumbers = generateLottoArray(6, 1, 49).sort((a, b) => a - b);
       let rightGuesses = numberOfCorrectGuesses(selectedNumber, rightNumbers);
 
+      switch (rightGuesses) {
+        case 3:
+          three++;
+          break;
+        case 4:
+          four++;
+          break;
+        case 5:
+          five++;
+          break;
+        case 6:
+          six++;
+          break;
+      }
+
       if (rightGuesses > max) {
         max = rightGuesses;
         drawnNumberArray[0] = rightNumbers;
@@ -105,11 +122,19 @@ function checkboxes(numberOfRuns) {
       }
     }
     playSound("./sounds/openhat.wav");
-    Alert.render("Following numbers were drawn. " + drawnNumberArray + "<br />" + name + " You have " + max + " number(s) guessed right.");
-    Alert.ok = function () {
-      location.reload()
-    }
 
+    if (boughtTicket) {
+      Alert.render("Following numbers were drawn. " + drawnNumberArray + "<br />" + name + " You have " + max + " number(s) guessed right.");
+      Alert.ok = function () {
+        location.reload()
+      }
+    } else {
+      Alert.render("After " + numberOfRuns + " rounds. you got " + "<br />" + "3 right numbers: " + three + "<br />" + "4 right numbers: " + four + "<br />" + "5 right numbers: " + five + "<br />" + "6 right numbers: " + six);
+      Alert.ok = function () {
+        location.reload()
+      }
+
+    }
   }
 }
 
