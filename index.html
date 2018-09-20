@@ -8,8 +8,16 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
+  <div id="switchdiv">
+    <p id="switchMode">
+      Multiplayer Mode active
+    </p>
+    <label class="switch">
+      <input id="checker" type="checkbox" onclick="changeMode();">
+      <span class="slider round"></span>
+    </label>
+  </div>
   <div id="dialogoverlay"></div>
   <div id="dialogbox">
     <div>
@@ -41,15 +49,6 @@
   </div>
   </div>
   </div>
-  <div id="switchdiv">
-    <p id="switchMode">
-      Multiplayer Mode active
-    </p>
-    <label class="switch">
-      <input id="checker" type="checkbox" onclick="changeMode();">
-      <span class="slider round"></span>
-    </label>
-  </div>
   <div class="button-box">
     <div class="select-box" id="probability">
       <p>Select how many rounds do you wanna play.</p>
@@ -76,5 +75,4 @@
   <script src="js/lotto.js"></script>
   <script src="js/index.js"></script>
 </body>
-
 </html>
