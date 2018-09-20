@@ -236,3 +236,8 @@ function changeMode() {
     highscore.style.display = "none";
   }
 }
+
+function resetHighscore() {
+  localStorage.clear();
+  location.reload();
+}
