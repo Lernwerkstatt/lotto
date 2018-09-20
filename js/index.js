@@ -220,6 +220,7 @@ function changeMode() {
   let buyTicket = document.getElementById("buyTicket");
   let switchMode = document.getElementById("switchMode");
   let highscore = document.getElementById("highscore");
+  let reset = document.getElementById("reset");
 
   if (checked.getAttribute("checked") == "") {
     checked.removeAttribute("checked");
@@ -234,6 +235,7 @@ function changeMode() {
     probability.style.display = "inline-block";
     buyTicket.style.display = "none";
     highscore.style.display = "none";
+    reset.style.display = "none";
   }
 }
 
