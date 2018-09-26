@@ -8,16 +8,8 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-  <div id="switchdiv">
-    <p id="switchMode">
-      Multiplayer Mode active
-    </p>
-    <label class="switch">
-      <input id="checker" type="checkbox" onclick="changeMode();">
-      <span class="slider round"></span>
-    </label>
-  </div>
   <div id="dialogoverlay"></div>
   <div id="dialogbox">
     <div>
@@ -42,46 +34,45 @@
       </div>
       <form class="container" id="playerOne"></form>
     </div>
-    <div class="selection-wrap">
+    <div class="aside-wrap">
       <div class="selection" id="selectionOne"></div>
-      <button type="button" name="check" class="check" id="checkButton">Check</button>
-    </div>
-  </div>
-  </div>
-  </div>
-  <div class="button-box">
-    <div id="switchdiv">
-        <p id="switchMode">
-          Multiplayer Mode active
-        </p>
-        <label class="switch">
-          <input id="checker" type="checkbox" onclick="changeMode();">
-          <span class="slider round"></span>
-        </label>
+      <ol class="highscore" id="highscore">
+        <h2>Highscore:</h2>
+      </ol>
+      <div class="button-box">
+        <div id="switchdiv" class="switchdiv">
+          <p id="switchMode" class="switchMode">
+            Multiplayer Mode active
+          </p>
+          <label class="switch">
+            <input id="checker" type="checkbox" onclick="changeMode();">
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="select-box" id="probability">
+          <p>Select how many rounds do you wanna play.</p>
+          <select id="numberOfTickets" onchange="numberOfTickets();">
+            <option id="selected" value="0">0</option>
+            <option value="1">1</option>
+            <option value="10">10</option>
+            <option value="100">100</option>
+            <option value="1000">1000</option>
+            <option value="10000">10000</option>
+            <option value="100000">100000</option>
+            <option value="1000000">1000000</option>
+          </select>
+        </div>
+        <button name="check" id="reset" onclick="resetHighscore();">
+          Reset Highscore
+        </button>
+        <button type="button" name="check" id="buyTicket" onclick="buyTicket();">Buy a ticket</button>
+        <button type="button" name="check" class="check" id="checkButton">Check</button>
       </div>
-    <div class="select-box" id="probability">
-      <p>Select how many rounds do you wanna play.</p>
-      <select id="numberOfTickets" onchange="numberOfTickets();">
-        <option id="selected" value="0">0</option>
-        <option value="1">1</option>
-        <option value="10">10</option>
-        <option value="100">100</option>
-        <option value="1000">1000</option>
-        <option value="10000">10000</option>
-        <option value="100000">100000</option>
-        <option value="1000000">1000000</option>
-      </select>
     </div>
-    <button type="button" name="check" id="buyTicket" onclick="buyTicket();">Buy a ticket</button>
   </div>
-  <ol class="highscore" id="highscore">
-    <h2>Highscore:</h2>
-  </ol>
-  </div>
-  <button name="check" id="reset" onclick="resetHighscore();">
-    Reset Highscore
-  </button>
+  
   <script src="js/lotto.js"></script>
   <script src="js/index.js"></script>
 </body>
+
 </html>

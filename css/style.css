@@ -2,7 +2,7 @@ body {
   background-color: #167651;
   padding: 50px;
   margin: 0px;
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Palatino Linotype", "Book Antiqua", serif;
   box-sizing: border-box;
   justify-content: stretch;
 }
@@ -19,10 +19,10 @@ body {
 
 .ticket {
   background: url("../images/paper-bg.jpg"), #F0EEEA;
-  padding: 3% 5%;
+  padding: 2% 3%;
   position: relative;
   margin-right: 50px;
-  width: 87%;
+  width: 80%;
   box-sizing: border-box;
 }
 
@@ -120,14 +120,13 @@ body {
 .ticket-header .rules {
   margin-top: 50px;
   font-size: 0.9em;
-  font-family: "Palatino Linotype", "Book Antiqua", serif; 
   font-weight: bold;
 }
 
 .container {
   display: grid;
-  margin-top: 70px;
-  grid-gap: 20px;
+  margin-top: 50px;
+  grid-gap: 15px;
   grid-template-columns: repeat(auto-fit, minmax(50px, 53px));
   grid-auto-rows: 50px;
   grid-auto-flow: dense;
@@ -174,25 +173,13 @@ body {
   height: 100%;
 }
 
-.button-box {
-  display: flex;
-  margin-top: 5%;
-  color: #F0EEEA;
-  text-transform: uppercase;
-  font-family: "Palatino Linotype", "Book Antiqua", serif;
-  width: 77%;
-}
-
 button[name="check"] {
-  width: 134px;
-  margin-top: 2%;
   padding: 20px 0px;
   border-radius: 5px;
   background: #F0EEEA;
   color: #544c3d;
   border: 1px solid #d0c6b3;
   text-transform: uppercase;
-  font-family: "Palatino Linotype", "Book Antiqua", serif;
   outline: none;
 }
 
@@ -211,38 +198,10 @@ button[name="check"] a:hover {
   box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
 
-.button-box button[name="check"] {
-  margin-top: 0;
-  color: rgba(158, 53, 53);
-}
-
-.button-box .select-box {
-  max-width: 390px;
-  margin-right: 20px;
-}
-
-.button-box #switchdiv {
-  margin-right: 40px;
-}
-
-.button-box .select-box select {
-  color: rgba(158, 53, 53);
-  outline: none;
-  height: 2em;
-  line-height: 2em;
-  width: 80px;
-  cursor: pointer;
-}
-
-.button-box p {
-  margin-top: 0;
-}
-
-.selection-wrap {
-  width: 134px;
+.aside-wrap {
+  width: 300px;
   position: sticky;
   top: 0;
-  height: fit-content;
 }
 
 .selection {
@@ -254,15 +213,14 @@ button[name="check"] a:hover {
   vertical-align: middle;
   overflow: hidden;
   color: #544c3d;
-  padding: 50px;
+  padding: 30px;
   margin-bottom: 20px;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(50px, 53px));
   grid-auto-rows: 50px;
   grid-auto-flow: dense;
   position: relative;
-  width: 25%;
-  min-height: 400px;
+  min-height: 120px;
 }
 
 #selectionOne span, #selectionTwo span {
@@ -289,15 +247,16 @@ button[name="check"] a:hover {
 }
 
 .highscore {
-  background: url(../images/paper-bg.jpg); 
   border-radius: 5px;
-  padding: 20px 40px 50px;
+  padding: 20px 40px;
   box-sizing: border-box;
-  font-family: "Palatino Linotype", "Book Antiqua", serif;
   color: rgba(158, 53, 53);
   position: relative;
   margin-top: 50px;
+  margin-bottom: 25px;
   overflow: hidden;
+  min-height: 135px;
+  background: #292626;
 }
 
 .highscore::before {
@@ -327,6 +286,110 @@ button[name="check"] a:hover {
   font-weight: normal;
   font-size: 2em;
   text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.button-box {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, 130px);
+  width: 280px;
+}
+
+.switchMode {
+  color: #F0EEEA;
+  text-transform: uppercase;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #292626;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: rgba(158, 53, 53);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px rgba(158, 53, 53);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+  /* box-shadow: inset -25px -25px 40px rgba(0,0,0,.5);
+  background-image: -webkit-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
+  background-image: -moz-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);  
+  background-image: -o-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
+  background-image: -ms-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%); */
+}
+
+#probability {
+  display: none;
+}
+
+#ticketTwo {
+  display: none;
+}
+
+#boughtTicket {
+  background: rgba(158, 53, 53, 0.8);
+  outline: none;
+  pointer-events: none;
+  color: #F0EEEA;
+}
+
+.select-box p {
+  color: #F0EEEA;
+  text-transform: uppercase;
+}
+
+.select-box select {
+  height: 40px;
+  line-height: 40px;
+  color: #544c3d;
+  background: #F0EEEA;
 }
 
 #dialogoverlay {
@@ -353,7 +416,6 @@ button[name="check"] a:hover {
   background: #d0c6b3;
   width: 550px;
   z-index: 10;
-  font-family: "Times New Roman", Times, serif;
   color: #544c3d;
   text-transform: uppercase;
   box-shadow: 0px 0px 73px 7px rgba(0,0,0,0.75);
@@ -393,7 +455,7 @@ button[name="check"] a:hover {
 
 }
 
-@media all and (max-width: 633px) {
+@media all and (max-width: 788px) {
 
   body {
     padding: 30px;
@@ -417,32 +479,39 @@ button[name="check"] a:hover {
     margin-top: 60px;
   }
 
-  .selection-wrap {
+  .aside-wrap {
     width: 100%;
     position: relative;
   }
 
   .selection {
     width: 100%;
-    min-height: auto;
+    min-height: 110px;
     box-sizing: border-box;
     margin-top: 20px;
   }
 
-  #dialogbox {
-    width: 420px;
-    margin: 0 0 0 -211px;
+  .button-box {
+    width: auto;
+    justify-content: space-between;
+    height: 107px;
   }
 
-  .button-box {
-    justify-content: space-between;
-    width: 100%;
+  #dialogbox {
+    width: 420px;
+    margin: 0 0 0 -210px;
   }
+
 }
 
 @media all and (max-width: 500px) {
   .team-wrap h1 {
     font-size: 1.5em;
+  }
+
+  #dialogbox {
+    width: 380px;
+    margin: 0 0 0 -190px;
   }
 }
 
@@ -520,75 +589,5 @@ button[name="check"] a:hover {
   text-decoration: none;
 }
 
-#ticketTwo {
-  display: none;
-}
 
-#boughtTicket {
-  background: rgba(158, 53, 53, 0.8);
-  outline: none;
-  pointer-events: none;
-  color: #F0EEEA;
-}
 
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-.switch input {
-  display: none;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: rgba(158, 53, 53);
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px rgba(158, 53, 53);
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
-#probability {
-  display: none;
-}

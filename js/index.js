@@ -226,7 +226,7 @@ function changeMode() {
     checked.removeAttribute("checked");
     probability.style.display = "none";
     buyTicket.style.display = "inline-block";
-    switchMode.innerHTML = "Mutliplayer Mode active";
+    switchMode.innerHTML = "Multiplayer Mode active";
     highscore.style.display = "block";
     reset.style.display = "inline-block";
 
