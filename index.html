@@ -17,60 +17,64 @@
       <div id="dialogboxfoot"></div>
     </div>
   </div>
-  <div class="ticket-box">
-    <div class="ticket">
-      <div class="ticket-header">
-        <h1>
-          <span class="letter" id="charOne">L</span>
-          <span class="letter" id="charTwo">o</span>
-          <span class="letter" id="charThree">t</span>
-          <span class="letter" id="charFour">t</span>
-          <span class="letter" id="charFive">o</span>
-        </h1>
-        <p class="name">Die Lernwerkstatt <br>
-          <a href="./about.html">(Our Team)</a>
-        </p>
-        <p class="rules">Select 6 numbers, buy a ticket, click "Check" and hope for the victory. Good luck!</p>
-      </div>
-      <form class="container" id="playerOne"></form>
-    </div>
-    <div class="aside-wrap">
-      <div class="selection" id="selectionOne"></div>
-      <ol class="highscore" id="highscore">
-        <h2>Highscore:</h2>
-      </ol>
-      <div class="button-box">
-        <div id="switchdiv" class="switchdiv">
-          <p id="switchMode" class="switchMode">
-            Multiplayer Mode active
+  <div class="ticket-wrap">
+    <div class="ticket-box">
+      <div class="ticket">
+        <div class="ticket-header">
+          <h1>
+            <span class="letter" id="charOne">L</span>
+            <span class="letter" id="charTwo">o</span>
+            <span class="letter" id="charThree">t</span>
+            <span class="letter" id="charFour">t</span>
+            <span class="letter" id="charFive">o</span>
+          </h1>
+          <p class="name">Die Lernwerkstatt <br>
+            <a href="./about.html">(Our Team)</a>
           </p>
-          <label class="switch">
-            <input id="checker" type="checkbox" onclick="changeMode();">
-            <span class="slider round"></span>
-          </label>
+          <p class="rules">Select 6 numbers, buy a ticket, click "Check" and hope for the victory. Good luck!</p>
         </div>
-        <div class="select-box" id="probability">
-          <p>Select how many rounds do you wanna play.</p>
-          <select id="numberOfTickets" onchange="numberOfTickets();">
-            <option id="selected" value="0">0</option>
-            <option value="1">1</option>
-            <option value="10">10</option>
-            <option value="100">100</option>
-            <option value="1000">1000</option>
-            <option value="10000">10000</option>
-            <option value="100000">100000</option>
-            <option value="1000000">1000000</option>
-          </select>
-        </div>
-        <button name="check" id="reset" onclick="resetHighscore();">
-          Reset Highscore
-        </button>
-        <button type="button" name="check" id="buyTicket" onclick="buyTicket();">Buy a ticket</button>
-        <button type="button" name="check" class="check" id="checkButton">Check</button>
+        <form class="container" id="playerOne"></form>
       </div>
+      <div class="aside-wrap">
+        <div class="selection" id="selectionOne"></div>
+
+        <div class="button-box">
+          <div id="switchdiv" class="switchdiv">
+            <p id="switchMode" class="switchMode">
+              Multiplayer Mode active
+            </p>
+            <label class="switch">
+              <input id="checker" type="checkbox" onclick="changeMode();">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="select-box" id="probability">
+            <p>Select how many rounds do you wanna play.</p>
+            <select id="numberOfTickets" onchange="numberOfTickets();">
+              <option id="selected" value="0">0</option>
+              <option value="1">1</option>
+              <option value="10">10</option>
+              <option value="100">100</option>
+              <option value="1000">1000</option>
+              <option value="10000">10000</option>
+              <option value="100000">100000</option>
+              <option value="1000000">1000000</option>
+            </select>
+          </div>
+          <button type="button" name="check" id="buyTicket" onclick="buyTicket();">Buy a ticket</button>
+          <button type="button" name="check" class="check" id="checkButton">Check</button>
+        </div>
+      </div>
+    </div>
+    <div class="highscore-wrap">
+      <div class="highscore-box">
+        <h2>Highscore:</h2>
+        <ol class="highscore" id="highscore" type="1"></ol>
+      </div>
+      <button name="check" id="reset" onclick="resetHighscore();">Reset Highscore</button>
     </div>
   </div>
-  
+
   <script src="js/lotto.js"></script>
   <script src="js/index.js"></script>
 </body>

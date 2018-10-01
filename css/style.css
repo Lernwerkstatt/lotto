@@ -19,7 +19,7 @@ body {
 
 .ticket {
   background: url("../images/paper-bg.jpg"), #F0EEEA;
-  padding: 2% 3%;
+  padding: 1% 3%;
   position: relative;
   margin-right: 50px;
   width: 80%;
@@ -118,14 +118,14 @@ body {
 } 
 
 .ticket-header .rules {
-  margin-top: 50px;
+  margin-top: 20px;
   font-size: 0.9em;
   font-weight: bold;
 }
 
 .container {
   display: grid;
-  margin-top: 50px;
+  margin-top: 30px;
   grid-gap: 15px;
   grid-template-columns: repeat(auto-fit, minmax(50px, 53px));
   grid-auto-rows: 50px;
@@ -174,7 +174,7 @@ body {
 }
 
 button[name="check"] {
-  padding: 20px 0px;
+  padding: 20px 10px;
   border-radius: 5px;
   background: #F0EEEA;
   color: #544c3d;
@@ -246,42 +246,43 @@ button[name="check"] a:hover {
   box-shadow: none;
 }
 
-.highscore {
+.highscore-wrap {
+  margin-top: 30px;
+  width: 75.3%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.highscore-box {
   border-radius: 5px;
-  padding: 20px 40px;
+  padding: 20px;
   box-sizing: border-box;
   color: rgba(158, 53, 53);
-  position: relative;
-  margin-top: 50px;
-  margin-bottom: 25px;
+  margin: 0;
   overflow: hidden;
-  min-height: 135px;
   background: #292626;
+  width: 400px;
+  margin-right: 20px;
 }
 
-.highscore::before {
-  transform: rotate(-3deg);
-  left: .5em;
+.highscore {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  text-align: left;
+  padding: 0;
 }
 
-.highscore::after {
-  transform: rotate(3deg);
-  right: .5em;
+.highscore li {
+  word-break: break-all;
+  display: list-item;
+  margin-left: 35px;
 }
 
-.highscore::before,
-.highscore::after {
-  z-index: -1;
-    position: absolute;
-    content: '';
-    bottom: 1em;
-    width: 50%;
-    top: 80%;
-    background: #777;
-    box-shadow: 0 10px 34px -6px #000;
-}
 
-.highscore h2 {
+.highscore-box h2 {
   text-align: center;
   font-weight: normal;
   font-size: 2em;
@@ -428,6 +429,7 @@ input:checked + .slider:before {
 
 #dialogbox > div > #dialogboxbody {
   padding: 20px;
+  word-break: break-all;
 }
 
 #dialogbox > div > #dialogboxfoot {
