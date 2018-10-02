@@ -379,6 +379,10 @@ input:checked + .slider:before {
   color: #F0EEEA;
 }
 
+.select-box {
+  height: 60px;
+}
+
 .select-box p {
   color: #F0EEEA;
   text-transform: uppercase;

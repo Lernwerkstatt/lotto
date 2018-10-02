@@ -234,7 +234,7 @@ function changeMode() {
   } else {
     checked.setAttribute("checked", "");
     switchMode.innerHTML = "Probability Mode active"
-    probability.style.display = "inline-block";
+    probability.style.display = "flex";
     buyTicket.style.display = "none";
     highscoreBox.style.display = "none";
     reset.style.display = "none";
