@@ -221,13 +221,14 @@ function changeMode() {
   let switchMode = document.getElementById("switchMode");
   let highscore = document.getElementById("highscore");
   let reset = document.getElementById("reset");
+  let highscoreBox = document.getElementById("highscore-box");
 
   if (checked.getAttribute("checked") == "") {
     checked.removeAttribute("checked");
     probability.style.display = "none";
     buyTicket.style.display = "inline-block";
     switchMode.innerHTML = "Multiplayer Mode active";
-    highscore.style.display = "block";
+    highscoreBox.style.display = "block";
     reset.style.display = "inline-block";
 
   } else {
@@ -235,7 +236,7 @@ function changeMode() {
     switchMode.innerHTML = "Probability Mode active"
     probability.style.display = "inline-block";
     buyTicket.style.display = "none";
-    highscore.style.display = "none";
+    highscoreBox.style.display = "none";
     reset.style.display = "none";
   }
 }
