@@ -293,6 +293,7 @@ button[name="check"] a:hover {
 .switchdiv {
   display: flex;
   margin: 38px 0;
+  align-items: center;
 }
 
 .button-box-row {
@@ -359,6 +360,7 @@ input:checked + .slider:before {
 /* Rounded sliders */
 .slider.round {
   border-radius: 34px;
+  min-width: 55px;
 }
 
 .slider.round:before {
@@ -446,13 +448,18 @@ input:checked + .slider:before {
   background: #d0c6b3;
 }
 
-@media all and (max-width: 830px) {
-  .container {
-    margin-top: 80px;
+@media all and (max-width: 1180px) {
+
+  .highscore-wrap {
+    width: 70%;
   }
 
-  .ticket {
-    padding: 5%;
+}
+
+@media all and (max-width: 940px) {
+
+  .highscore-wrap {
+    width: 100%;
   }
 
 }
@@ -494,9 +501,16 @@ input:checked + .slider:before {
   }
 
   .button-box {
-    width: auto;
-    justify-content: space-between;
-    height: 107px;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .switchMode {
+    margin-right: 20px;
+  }
+
+  .switchdiv {
+    margin-right: 20px;
   }
 
   #dialogbox {
@@ -504,6 +518,32 @@ input:checked + .slider:before {
     margin: 0 0 0 -210px;
   }
 
+}
+
+@media all and (max-width: 540px) {
+
+  .selection {
+    grid-template-columns: repeat(3, minmax(50px, 53px));
+  }
+  
+  .button-box {
+    display: block;
+    margin: 0;
+  }
+
+  .highscore-wrap {
+    display: block;
+  }
+
+  .highscore-box {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .highscore-wrap button[name="check"] {
+    width: 100%;
+  }
 }
 
 @media all and (max-width: 500px) {
