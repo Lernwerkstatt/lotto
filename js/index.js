@@ -81,12 +81,9 @@ function checkboxes(numberOfRuns) {
     }
   }
 
-
   if (count !== 6) {
     playSound("./sounds/mistake.wav");
     Alert.render("Please select exactly 6 numbers");
-    //document.querySelectorAll("#numberOfTickets option")[0].removeAttribute("selected", "");
-    //document.querySelectorAll("#numberOfTickets option")[0].setAttribute("selected", "");
   }
   else {
     let max = -1;
@@ -133,7 +130,6 @@ function checkboxes(numberOfRuns) {
       Alert.ok = function () {
         location.reload()
       }
-
     }
   }
 }
@@ -206,12 +202,7 @@ function numberOfTickets() {
   let selectedValue = selectBox.options[selectBox.selectedIndex].value;
   let activateCheckButton = document.getElementById('checkButton');
 
-  //activateCheckButton.setAttribute('onclick', checkboxes(selectedValue));
   activateCheckButton.addEventListener("click", checkboxes.bind(null, selectedValue));
-
-  //document.querySelectorAll("#numberOfTickets option")[0].removeAttribute("selected", "");
-  //document.querySelectorAll("#numberOfTickets option")[0].setAttribute("selected", "");
-
 }
 
 function changeMode() {
