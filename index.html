@@ -7,6 +7,7 @@
   <title>Lotto</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <body>
@@ -49,22 +50,22 @@
             </label>
           </div>
           <div class="button-box-row">
-          <div class="select-box" id="probability">
-            <p>Select how many rounds do you wanna play.</p>
-            <select id="numberOfTickets" onchange="numberOfTickets();">
-              <option id="selected" value="0">0</option>
-              <option value="1">1</option>
-              <option value="10">10</option>
-              <option value="100">100</option>
-              <option value="1000">1000</option>
-              <option value="10000">10000</option>
-              <option value="100000">100000</option>
-              <option value="1000000">1000000</option>
-            </select>
+            <div class="select-box" id="probability">
+              <p>Select how many rounds do you wanna play.</p>
+              <select id="numberOfTickets" onchange="numberOfTickets();">
+                <option id="selected" value="0">0</option>
+                <option value="1">1</option>
+                <option value="10">10</option>
+                <option value="100">100</option>
+                <option value="1000">1000</option>
+                <option value="10000">10000</option>
+                <option value="100000">100000</option>
+                <option value="1000000">1000000</option>
+              </select>
+            </div>
+            <button type="button" name="check" id="buyTicket" onclick="buyTicket();">Buy a ticket</button>
+            <button type="button" name="check" class="check" id="checkButton">Check</button>
           </div>
-          <button type="button" name="check" id="buyTicket" onclick="buyTicket();">Buy a ticket</button>
-          <button type="button" name="check" class="check" id="checkButton">Check</button>
-        </div>
         </div>
       </div>
     </div>
