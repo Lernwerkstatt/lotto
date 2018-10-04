@@ -140,6 +140,7 @@ function CustomAlert() {
     var dialogbox = document.getElementById('dialogbox');
     dialogoverlay.style.display = "block";
     dialogbox.style.display = "block";
+    document.getElementById('dialogboxhead').style.display = "none";
     document.getElementById('dialogboxbody').innerHTML = dialog;
     document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Alert.ok()">OK</button>';
   }
@@ -177,25 +178,55 @@ function createHighscore(localStorage) {
 }
 
 function buyTicket() {
-  let activateCheckButton = document.getElementById('checkButton');
-  name = ""
-  while (name === "") {
-    name = prompt('Please enter your name:')
-    name = name.charAt(0).toUpperCase() + name.substr(1);
-  }
+    Prompt.render('Please enter your name:', 'promptHandler');
+}
 
+function promptHandler(input) {
+  name = input.charAt(0).toUpperCase() + input.substr(1);
 
   if (name !== "" && name !== "Null") {
-    let buy = document.getElementById('buyTicket')
-    let switchdiv = document.getElementById('switchdiv')
+    let buy = document.getElementById('buyTicket');
+    let switchdiv = document.getElementById('switchdiv');
 
-    switchdiv.style.display = "none"
-    buy.setAttribute('id', 'boughtTicket')
-    buy.innerHTML = 'Ticket bought'
-    buy.setAttribute('onclick', '')
+    switchdiv.style.display = "none";
+    buy.setAttribute('id', 'boughtTicket');
+    buy.innerHTML = 'Ticket bought';
+    buy.setAttribute('onclick', '');
+    let activateCheckButton = document.getElementById('checkButton');
     activateCheckButton.addEventListener("click", checkboxes.bind(null, 1));
+  }      
+}
+
+function CustomPrompt() {
+  this.render = function (dialog, func) {
+    var dialogoverlay = document.getElementById('dialogoverlay');
+    var dialogbox = document.getElementById('dialogbox');
+    dialogoverlay.style.display = "block";
+    dialogbox.style.display = "block";
+    document.getElementById('dialogboxhead').innerHTML = 'Please enter your name:';
+    document.getElementById('dialogboxbody').innerHTML = dialog;
+    document.getElementById('dialogboxbody').innerHTML += '<br><input id="prompt_value1">';
+    document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Prompt.ok(\''+func+'\')">OK</button> <button onclick="Prompt.cancel()">Cancel</button>';
+	}
+  
+
+  this.cancel = function(){
+		document.getElementById('dialogbox').style.display = "none";
+		document.getElementById('dialogoverlay').style.display = "none";
+	}
+
+  this.ok = function (func) {
+    var prompt_value1 = document.getElementById('prompt_value1').value;
+		window[func](prompt_value1);
+		document.getElementById('dialogbox').style.display = "none";
+		document.getElementById('dialogoverlay').style.display = "none";
+    document.getElementById('dialogbox').style.display = "none";
+    document.getElementById('dialogoverlay').style.display = "none";
   }
 }
+
+var Prompt = new CustomPrompt();
+
 
 function numberOfTickets() {
   let selectBox = document.getElementById("numberOfTickets");
