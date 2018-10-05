@@ -306,6 +306,7 @@ button[name="check"] a:hover {
   color: #F0EEEA;
   text-transform: uppercase;
   margin: 0;
+  max-width: 150px;
 }
 
 .switch {
@@ -516,6 +517,7 @@ input:checked + .slider:before {
   
   .switchMode {
     margin-right: 20px;
+    max-width: none;
   }
 
   .switchdiv {
