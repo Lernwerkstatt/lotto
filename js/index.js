@@ -180,7 +180,7 @@ function buyTicket() {
     Prompt.render('Please enter your name:', 'promptHandler');
 }
 
-function promptHandler(input) {
+function promptHandler(input) {  
   name = input.charAt(0).toUpperCase() + input.substr(1);
 
   if (name !== "" && name !== "Null") {
@@ -203,7 +203,7 @@ function CustomPrompt() {
     dialogoverlay.style.display = "block";
     dialogbox.style.display = "block";
     document.getElementById('dialogboxbody').innerHTML = dialog;
-    document.getElementById('dialogboxbody').innerHTML += '<br><input id="prompt_value1">';
+    document.getElementById('dialogboxbody').innerHTML += '<br><input id="prompt_value1" autofocus>';
     document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Prompt.ok(\''+func+'\')">OK</button> <button onclick="Prompt.cancel()">Cancel</button>';
 	}
   
