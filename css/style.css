@@ -393,6 +393,7 @@ input:checked + .slider:before {
   line-height: 40px;
   color: #544c3d;
   background: #F0EEEA;
+  margin-left: 20px;
 }
 
 #dialogoverlay {
@@ -456,6 +457,10 @@ input:checked + .slider:before {
 
   .highscore-wrap {
     width: 70%;
+  }
+
+  .button-box-row {
+    grid-template-rows: fit-content(40%);
   }
 
 }
