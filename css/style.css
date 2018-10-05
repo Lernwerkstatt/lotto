@@ -434,6 +434,10 @@ input:checked + .slider:before {
   word-break: break-all;
 }
 
+#dialogbox > div > #dialogboxbody input {
+  margin-top: 20px;
+}
+
 #dialogbox > div > #dialogboxfoot {
   padding: 10px; 
   text-align: right; 
@@ -554,6 +558,7 @@ input:checked + .slider:before {
   #dialogbox {
     width: 380px;
     margin: 0 0 0 -190px;
+    font-size: 120%;
   }
 }
 

@@ -140,7 +140,6 @@ function CustomAlert() {
     var dialogbox = document.getElementById('dialogbox');
     dialogoverlay.style.display = "block";
     dialogbox.style.display = "block";
-    document.getElementById('dialogboxhead').style.display = "none";
     document.getElementById('dialogboxbody').innerHTML = dialog;
     document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Alert.ok()">OK</button>';
   }
@@ -203,7 +202,6 @@ function CustomPrompt() {
     var dialogbox = document.getElementById('dialogbox');
     dialogoverlay.style.display = "block";
     dialogbox.style.display = "block";
-    document.getElementById('dialogboxhead').innerHTML = 'Please enter your name:';
     document.getElementById('dialogboxbody').innerHTML = dialog;
     document.getElementById('dialogboxbody').innerHTML += '<br><input id="prompt_value1">';
     document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Prompt.ok(\''+func+'\')">OK</button> <button onclick="Prompt.cancel()">Cancel</button>';
