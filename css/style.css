@@ -259,7 +259,7 @@ button[name="check"] a:hover {
   border-radius: 5px;
   padding: 20px;
   box-sizing: border-box;
-  color: rgba(158, 53, 53);
+  color: #9e3535;
   margin: 0;
   overflow: hidden;
   background: #292626;
@@ -345,11 +345,11 @@ button[name="check"] a:hover {
 }
 
 input:checked + .slider {
-  background-color: rgba(158, 53, 53);
+  background-color: #9e3535;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px rgba(158, 53, 53);
+  box-shadow: 0 0 1px #9e3535;
 }
 
 input:checked + .slider:before {
@@ -377,7 +377,8 @@ input:checked + .slider:before {
 }
 
 #boughtTicket {
-  background: rgba(158, 53, 53, 0.8);
+  background: #9e3535;
+  opacity: 0.8;
   outline: none;
   pointer-events: none;
   color: #F0EEEA;
