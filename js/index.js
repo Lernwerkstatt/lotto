@@ -165,17 +165,20 @@ function generateLottoAnimation() {
 
 function createHighscore(input) {
   let high = document.getElementById('highscore')
-  let sortable = Object.entries(input)
+  if (input !== null) {
+    let sortable = Object.entries(input)
 
-  sortable.sort(function (a, b) {
-    return b[1] - a[1];
-  })
-
-  sortable.forEach((element) => {
-    let newList = document.createElement("li");
-    newList.innerHTML = element[0] + " " + element[1];
-    high.appendChild(newList)
-  })
+    sortable.sort(function (a, b) {
+      return b[1] - a[1];
+    })
+  
+    sortable.forEach((element) => {
+      let newList = document.createElement("li");
+      newList.innerHTML = element[0] + " " + element[1];
+      high.appendChild(newList)
+    })
+  }
+  
 }
 
 function buyTicket() {
