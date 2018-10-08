@@ -1,4 +1,4 @@
 # lotto
 Lotto Game
 
-https://lernwerkstatt-lottogame.azurewebsites.net/
+https://lernwerkstatt-lottogame-firebase.azurewebsites.net/
