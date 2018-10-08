@@ -644,5 +644,9 @@ input:checked + .slider:before {
   text-decoration: none;
 }
 
+#reset {
+  display: none;
+}
+
 
 

@@ -60,8 +60,3 @@ typings/
 # next.js build output
 .next
 .DS_Store
-
-#firebase
-.firebaserc
-database.rules.json
-firebase.json
