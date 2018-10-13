@@ -12,11 +12,18 @@
 
 <body>
     <h1 id="title">Survey Form</h1>
-    <p id="description">This is the description</P>
+    <p id="description">Please give us feedback</P>
     <form id="survey-form">
-        * Name <input id="name" type="text" placeholder="Enter your name" required /><br>
-        * Email <input id="email" type="email" placeholder="Enter your email" required /><br>
-        * Age <input id="number" type="number" placeholder="Enter your Age" min="1" max="130" required />
+        <label id="name-label">* Name <input id="name" type="text" placeholder="Enter your name" required /></label><br>
+        <label id="email-label">* Email <input id="email" type="email" placeholder="Enter your email" required /></label><br>
+        <label id="number-label">* Age <input id="number" type="number" placeholder="Enter your Age" min="1" max="130"
+                required /></label><br>
+        Which option best describes your current role? <select id="dropdown">
+            <option>Student</option>
+            <option>Full Job</option>
+            <option>No Job</option>
+            <option>Prefer not to say</option>
+            <option>Other</option>
     </form>
 </body>
 
