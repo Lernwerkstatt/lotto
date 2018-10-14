@@ -112,12 +112,12 @@ function checkboxes(numberOfRuns) {
         max = rightGuesses;
         drawnNumberArray[0] = rightNumbers;
       }
-    }    
+    }
 
-    if (checked.getAttribute("checked") !== "") {      
+    if (checked.getAttribute("checked") !== "") {
       if (Number(db[name]) < max || !db[name]) {
         updateFirebase(name, max);
-      }     
+      }
     }
     playSound("./sounds/openhat.wav");
 
@@ -171,14 +171,14 @@ function createHighscore(input) {
     sortable.sort(function (a, b) {
       return b[1] - a[1];
     })
-  
+
     sortable.forEach((element) => {
       let newList = document.createElement("li");
       newList.innerHTML = element[0] + " " + element[1];
       high.appendChild(newList)
     })
   }
-  
+
 }
 
 function buyTicket() {
@@ -247,14 +247,21 @@ function changeMode() {
   let highscore = document.getElementById("highscore");
   let reset = document.getElementById("reset");
   let highscoreBox = document.getElementById("highscore-box");
+  let scoreSwitch = document.getElementById("scoreSwitch");
 
   if (checked.getAttribute("checked") == "") {
     checked.removeAttribute("checked");
     probability.style.display = "none";
     buyTicket.style.display = "inline-block";
     switchMode.innerHTML = "Multiplayer Mode active";
-    highscoreBox.style.display = "block";
-    reset.style.display = "inline-block";
+    highscoreBox.style.display = "block";    
+    scoreSwitch.style.display = "inline-block";
+
+    if (scoreSwitch.innerHTML === "Local Highscore") {
+      reset.style.display = "inline-block";
+    } else {
+      reset.style.display = "none";
+    }
 
   } else {
     checked.setAttribute("checked", "");
@@ -262,7 +269,25 @@ function changeMode() {
     probability.style.display = "flex";
     buyTicket.style.display = "none";
     highscoreBox.style.display = "none";
+    scoreSwitch.style.display = "none";
     reset.style.display = "none";
+  }
+}
+
+function changeScore() {
+  let score = document.getElementById("score");
+  let scoreValue = document.getElementById("scoreValue");
+  let reset = document.getElementById("reset");
+
+  if (score.getAttribute("checked") == "") {
+    score.removeAttribute("checked");
+    scoreValue.innerHTML = "Global Highcore";
+    reset.style.display = "none";
+
+  } else {
+    score.setAttribute("checked", "");
+    scoreValue.innerHTML = "Local Highcore";
+    reset.style.display = "inline-block";
   }
 }
 
@@ -272,16 +297,16 @@ function resetHighscore() {
 }
 
 var highscoreGlobal = function retrieveFromFirebase() {
-  return database.ref('/').once('value').then(function(snapshot) {
+  return database.ref('/').once('value').then(function (snapshot) {
     db = snapshot.val();
     createHighscore(db);
-    });
+  });
 }
 
 function updateFirebase(name, value) {
   database.ref('/').update({
-    [name] : value,
-    
+    [name]: value,
+
   });
 }
 

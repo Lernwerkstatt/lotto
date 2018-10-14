@@ -643,3 +643,7 @@ input:checked + .slider:before {
   color: #383229;
   text-decoration: none;
 } 
+
+#reset {
+  display: none;
+}
