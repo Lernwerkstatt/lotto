@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Our Team</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/feedback.css">
+</head>
+
+<body>
+    <h1 id="title">Survey Form</h1>
+    <p id="description">Please give us feedback</P>
+    <form id="survey-form">
+        <label id="name-label">* Name <input id="name" type="text" placeholder="Enter your name" required /></label><br>
+        <label id="email-label">* Email <input id="email" type="email" placeholder="Enter your email" required /></label><br>
+        <label id="number-label">* Age <input id="number" type="number" placeholder="Enter your Age" min="1" max="130"
+                required></label><br>
+        Which option best describes your current role? <select id="dropdown">
+            <option>Student</option>
+            <option>Full Job</option>
+            <option>No Job</option>
+            <option>Prefer not to say</option>
+            <option>Other</option>
+        </select><br>
+
+        <label id="play">
+            Do you wanna play again?
+            <div>
+                <input type="radio" name="likelyhood" value="yes">Yes</input><br>
+                <input type="radio" name="likelyhood" value="no">No</input><br>
+                <input type="radio" name="likelyhood" value="maybe">Maybe</input><br>
+                <div>
+        </label><br>
+        <label>
+            Things that should be improved in the future
+            (Check all that apply):
+            <div>
+                <input type="checkbox" name="improve" value="Style">Style</input><br>
+                <input type="checkbox" name="improve" value="Multiplayer">Multiplayer</input><br>
+                <input type="checkbox" name="improve" value="Probability">Probability</input><br>
+                <input type="checkbox" name="improve" value="Highscore">Highscore</input><br>
+                <input type="checkbox" name="improve" value="About Page">About Page</input><br>
+                <input type="checkbox" name="improve" value="Prize Money">Prize Money</input><br>
+            </div>
+        </label><br>
+        <label id="comments">
+            Any Comments or Suggestions?<br>
+            <textarea rows="4" cols="50">
+        </textarea>
+        </label><br>
+        <button id="submit">Submit</button>
+
+    </form>
+</body>
+
+</html>

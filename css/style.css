@@ -642,7 +642,8 @@ input:checked + .slider:before {
 .team-member .linkedin-link a:hover {
   color: #383229;
   text-decoration: none;
+} 
+
+#reset {
+  display: none;
 }
-
-
-

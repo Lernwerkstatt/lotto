@@ -8,6 +8,26 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-database.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-messaging.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-functions.js"></script> -->
+
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCyy620DdlcWwTK0zNRXvgjdQBmHen6JnU",
+      authDomain: "lernwerkstatt-lotto.firebaseapp.com",
+      databaseURL: "https://lernwerkstatt-lotto.firebaseio.com",
+      projectId: "lernwerkstatt-lotto",
+      storageBucket: "lernwerkstatt-lotto.appspot.com",
+      messagingSenderId: "1012820012693"
+    };
+    firebase.initializeApp(config);
+  </script>
 </head>
 
 <body>
@@ -74,8 +94,9 @@
         <h2>Highscore:</h2>
         <ol class="highscore" id="highscore" type="1"></ol>
       </div>
-      <button name="check" id="reset" onclick="resetHighscore();">Reset Highscore</button>
+      <a href="./feedback.html">Feedback</a>
     </div>
+
   </div>
 
   <script src="js/lotto.js"></script>

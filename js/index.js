@@ -1,4 +1,5 @@
-createHighscore(localStorage);
+var database = firebase.database();
+var db;
 renderNumbersPool("playerOne");
 generateLottoAnimation();
 
@@ -114,8 +115,8 @@ function checkboxes(numberOfRuns) {
     }
 
     if (checked.getAttribute("checked") !== "") {
-      if (Number(localStorage.name) < max || !localStorage.name) {
-        localStorage.setItem(name, max);
+      if (Number(db[name]) < max || !db[name]) {
+        updateFirebase(name, max);
       }
     }
     playSound("./sounds/openhat.wav");
@@ -161,26 +162,30 @@ function generateLottoAnimation() {
   }
 }
 
-function createHighscore(localStorage) {
+
+function createHighscore(input) {
   let high = document.getElementById('highscore')
-  let sortable = Object.entries(localStorage)
+  if (input !== null) {
+    let sortable = Object.entries(input)
 
-  sortable.sort(function (a, b) {
-    return b[1] - a[1];
-  })
+    sortable.sort(function (a, b) {
+      return b[1] - a[1];
+    })
 
-  sortable.forEach((element) => {
-    let newList = document.createElement("li");
-    newList.innerHTML = element[0] + " " + element[1];
-    high.appendChild(newList)
-  })
+    sortable.forEach((element) => {
+      let newList = document.createElement("li");
+      newList.innerHTML = element[0] + " " + element[1];
+      high.appendChild(newList)
+    })
+  }
+
 }
 
 function buyTicket() {
-    Prompt.render('Please enter your name:', 'promptHandler');
+  Prompt.render('Please enter your name:', 'promptHandler');
 }
 
-function promptHandler(input) {  
+function promptHandler(input) {
   name = input.charAt(0).toUpperCase() + input.substr(1);
 
   if (name !== "" && name !== "Null") {
@@ -193,7 +198,7 @@ function promptHandler(input) {
     buy.setAttribute('onclick', '');
     let activateCheckButton = document.getElementById('checkButton');
     activateCheckButton.addEventListener("click", checkboxes.bind(null, 1));
-  }      
+  }
 }
 
 function CustomPrompt() {
@@ -204,20 +209,20 @@ function CustomPrompt() {
     dialogbox.style.display = "block";
     document.getElementById('dialogboxbody').innerHTML = dialog;
     document.getElementById('dialogboxbody').innerHTML += '<br><input id="prompt_value1" autofocus>';
-    document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Prompt.ok(\''+func+'\')">OK</button> <button onclick="Prompt.cancel()">Cancel</button>';
-	}
-  
+    document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Prompt.ok(\'' + func + '\')">OK</button> <button onclick="Prompt.cancel()">Cancel</button>';
+  }
 
-  this.cancel = function(){
-		document.getElementById('dialogbox').style.display = "none";
-		document.getElementById('dialogoverlay').style.display = "none";
-	}
+
+  this.cancel = function () {
+    document.getElementById('dialogbox').style.display = "none";
+    document.getElementById('dialogoverlay').style.display = "none";
+  }
 
   this.ok = function (func) {
     var prompt_value1 = document.getElementById('prompt_value1').value;
-		window[func](prompt_value1);
-		document.getElementById('dialogbox').style.display = "none";
-		document.getElementById('dialogoverlay').style.display = "none";
+    window[func](prompt_value1);
+    document.getElementById('dialogbox').style.display = "none";
+    document.getElementById('dialogoverlay').style.display = "none";
     document.getElementById('dialogbox').style.display = "none";
     document.getElementById('dialogoverlay').style.display = "none";
   }
@@ -249,8 +254,6 @@ function changeMode() {
     buyTicket.style.display = "inline-block";
     switchMode.innerHTML = "Multiplayer Mode active";
     highscoreBox.style.display = "block";
-    reset.style.display = "inline-block";
-
   } else {
     checked.setAttribute("checked", "");
     switchMode.innerHTML = "Probability Mode active"
@@ -261,7 +264,18 @@ function changeMode() {
   }
 }
 
-function resetHighscore() {
-  localStorage.clear();
-  location.reload();
+var highscoreGlobal = function retrieveFromFirebase() {
+  return database.ref('/').once('value').then(function (snapshot) {
+    db = snapshot.val();
+    createHighscore(db);
+  });
 }
+
+function updateFirebase(name, value) {
+  database.ref('/').update({
+    [name]: value,
+
+  });
+}
+
+highscoreGlobal();
