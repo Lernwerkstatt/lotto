@@ -1,3 +1,12 @@
 #title {
     text-align: center;
   }
+
+#number {
+  margin-left: 14px;
+  width: 177px;
+}
+
+#email {
+  margin-left: 2px;
+}
