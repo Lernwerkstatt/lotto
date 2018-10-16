@@ -259,20 +259,19 @@ function changeMode() {
     switchMode.innerHTML = "Probability Mode active"
     probability.style.display = "flex";
     buyTicket.style.display = "none";
-    highscoreBox.style.display = "none";
-    reset.style.display = "none";
+    highscoreBox.style.display = "none";    
   }
 }
 
 var highscoreGlobal = function retrieveFromFirebase() {
-  return database.ref('/').once('value').then(function (snapshot) {
+  return database.ref().child('highscore').once('value').then(function (snapshot) {
     db = snapshot.val();
     createHighscore(db);
   });
 }
 
 function updateFirebase(name, value) {
-  database.ref('/').update({
+  database.ref().child('highscore').update({
     [name]: value,
 
   });
