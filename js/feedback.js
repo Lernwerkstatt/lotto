@@ -1,7 +1,7 @@
 var database = firebase.database();
 var db;
 let data = {};
-var utc = new Date().toJSON().slice(0,19).replace(/-/g,'-');
+var utc = new Date().toJSON().slice(0,19).replace(/T/g,'-');
 
 function collectData() {
 
