@@ -278,3 +278,5 @@ function updateFirebase(name, value) {
 }
 
 highscoreGlobal();
+
+

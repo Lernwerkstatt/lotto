@@ -8,16 +8,32 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/feedback.css">
+    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase-database.js"></script>
+
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCyy620DdlcWwTK0zNRXvgjdQBmHen6JnU",
+            authDomain: "lernwerkstatt-lotto.firebaseapp.com",
+            databaseURL: "https://lernwerkstatt-lotto.firebaseio.com",
+            projectId: "lernwerkstatt-lotto",
+            storageBucket: "lernwerkstatt-lotto.appspot.com",
+            messagingSenderId: "1012820012693"
+        };
+        firebase.initializeApp(config);
+    </script>
 </head>
 
 <body>
     <h1 id="title">Survey Form</h1>
     <p id="description">Please give us feedback</P>
     <form id="survey-form">
-        <label id="name-label">* Name <input id="name" type="text" placeholder="Enter your name" required /></label><br>
-        <label id="email-label">* Email <input id="email" type="email" placeholder="Enter your email" required /></label><br>
-        <label id="number-label">* Age <input id="number" type="number" placeholder="Enter your Age" min="1" max="130"
-                required></label><br>
+        <label id="name-label">* Name <input id="name" name="name" type="text" placeholder="Enter your name" required /></label><br>
+        <label id="email-label">* Email <input id="email" name="email" type="email" placeholder="Enter your email"
+                required /></label><br>
+        <label id="number-label">* Age <input id="number" name="number" type="number" placeholder="Enter your Age" min="1"
+                max="130" required></label><br>
         Which option best describes your current role? <select id="dropdown">
             <option>Student</option>
             <option>Full Job</option>
@@ -51,9 +67,10 @@
             <textarea rows="4" cols="50">
         </textarea>
         </label><br>
-        <button id="submit">Submit</button>
+        <button id="submit" onclick="collectData();">Submit</button>
 
     </form>
+    <script src="js/feedback.js"></script>
 </body>
 
 </html>
