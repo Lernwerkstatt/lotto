@@ -9,6 +9,7 @@ function collectData() {
     let email = document.getElementsByName("email");
     let number = document.getElementsByName("number");
     let role = document.getElementById("dropdown");
+    let country = document.getElementById("country");
 
     let radio = document.getElementsByName("likelyhood");
 
@@ -32,15 +33,16 @@ function collectData() {
 
     let comments = document.getElementById("comments");   
 
-    writeUserData(utc, name[0].value, email[0].value, number[0].value, role.options[role.options.selectedIndex].innerHTML, radio_checked, improve_checked, comments.value);
+    writeUserData(utc, name[0].value, email[0].value, number[0].value, role.options[role.options.selectedIndex].innerHTML, radio_checked, improve_checked, comments.value, country.options[country.options.selectedIndex].innerHTML);
 
 }
 
-function writeUserData(utc, name, email, number, role, radio, imp, comments) {
+function writeUserData(utc, name, email, number, role, radio, imp, comments, country) {
     firebase.database().ref('feedback/' + utc).set({
         username: name,
         email: email,
         age: number,
+        country: country,
         role: role,
         "Play again": radio,
         "Things to improve": imp,
