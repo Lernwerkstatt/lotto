@@ -20,16 +20,30 @@ function collectData() {
         }
     }
 
-    writeUserData(utc, name[0].value, email[0].value, number[0].value, role.options[role.options.selectedIndex].innerHTML, radio_checked);
+    let improve = document.getElementsByName("improve");
+
+    let improve_checked = [];
+
+    for (let i = 0; i < improve.length; i++) {
+        if (improve[i].checked === true) {
+            improve_checked.push(improve[i].value);
+        }
+    }
+
+    let comments = document.getElementById("comments");   
+
+    writeUserData(utc, name[0].value, email[0].value, number[0].value, role.options[role.options.selectedIndex].innerHTML, radio_checked, improve_checked, comments.value);
 
 }
 
-function writeUserData(utc, name, email, number, role, radio) {
+function writeUserData(utc, name, email, number, role, radio, imp, comments) {
     firebase.database().ref('feedback/' + utc).set({
         username: name,
         email: email,
         age: number,
         role: role,
-        "Play again": radio
+        "Play again": radio,
+        "Things to improve": imp,
+        comments: comments
     });
 }
