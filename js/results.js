@@ -62,7 +62,7 @@ svg.append("clipPath")
     .attr("width", width)
     .attr("height", height);
 
-d3.csv("readme.csv", type, function(error, data) {
+d3.csv("../readme.csv", type, function(error, data) {
   if (error) throw error;
 
   // Compute the minimum and maximum date, and the maximum price.
