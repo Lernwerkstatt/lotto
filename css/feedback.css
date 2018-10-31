@@ -1,12 +1,24 @@
-#title {
+#title, .center {
     text-align: center;
   }
 
-#number {
-  margin-left: 14px;
-  width: 177px;
+main {
+  margin: 40px;
 }
 
-#email {
-  margin-left: 2px;
+input[type="number"] {
+  width:195px;
+}
+
+#country {
+  width:198px;
+}
+
+#dropdown {
+  width:198px;
+}
+
+input, select, button {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
