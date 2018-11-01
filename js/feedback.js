@@ -1,3 +1,5 @@
+navigator.vibrate([1000, 1000, 2000]);
+
 var database = firebase.database();
 var db;
 let data = {};
