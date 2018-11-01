@@ -1,3 +1,12 @@
+body {
+  background-color: #167651;
+  padding: 50px;
+  margin: 0px;
+  font-family: "Palatino Linotype", "Book Antiqua", serif;
+  box-sizing: border-box;
+  justify-content: stretch;
+}
+
 #title, .center {
     text-align: center;
   }
@@ -8,6 +17,10 @@ main {
 
 input[type="number"] {
   width:195px;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  margin-right: 7px;
 }
 
 #country {
