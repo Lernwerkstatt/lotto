@@ -1,7 +1,3 @@
-var sos = window.navigator.vibrate([100,30,100,30,100,200,200,30,200,30,200,200,100,30,100,30,100]);
-
-sos();
-
 var database = firebase.database();
 var db;
 let data = {};

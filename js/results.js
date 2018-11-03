@@ -1,5 +1,5 @@
 let age = [];
-let country = [];
+let country = {};
 let imageLinks = [];
 
 function getUser() {
@@ -11,8 +11,10 @@ function getUser() {
         .then(data => {
             for (let i = 0; i < 100; i++) {
                 imageLinks.push(data.results[i].picture.large);
+                age.push(data.results[i].dob.age)
             }
-            d3Test(imageLinks);
+            d3Gallery(imageLinks);
+            //d3BarChart(age);
         }
 
         )
@@ -21,7 +23,7 @@ function getUser() {
         });
 }
 
-const d3Test = function (dataset) {
+const d3Gallery = function(dataset) {
     
     d3.select("body").selectAll("img")
         .data(dataset)
@@ -32,6 +34,14 @@ const d3Test = function (dataset) {
         .attr("height", 150);
           
 }
+/*
+const d3BarChart = function(dataset) {
+    d3.select("body").select("div")
+        .data(dataset)  
+        .enter()
+        .
+}
+*/
 
 getUser();
 
