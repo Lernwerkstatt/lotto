@@ -13,8 +13,9 @@ function getUser() {
                 imageLinks.push(data.results[i].picture.large);
                 age.push(data.results[i].dob.age)
             }
-            d3Gallery(imageLinks);
             //d3BarChart(age);
+            d3Gallery(imageLinks);
+
         }
 
         )
@@ -23,8 +24,16 @@ function getUser() {
         });
 }
 
-const d3Gallery = function(dataset) {
-    
+var dataset = [
+    { "value": 100, "name": "alpha" },
+    { "value": 70, "name": "beta" },
+    { "value": 40, "name": "gamma" },
+    { "value": 15, "name": "delta" },
+    { "value": 5, "name": "epsilon" },
+    { "value": 1, "name": "zeta" }
+]
+
+const d3Gallery = function (dataset) {
     d3.select("body").selectAll("img")
         .data(dataset)
         .enter()
@@ -32,18 +41,26 @@ const d3Gallery = function(dataset) {
         .attr("src", (d) => d)
         .attr("width", 150)
         .attr("height", 150);
-          
+
 }
-/*
-const d3BarChart = function(dataset) {
-    d3.select("body").select("div")
-        .data(dataset)  
-        .enter()
-        .
-}
-*/
+
+
+d3plus.viz()
+    .container("#viz")
+    .data(dataset)
+    .type("pie")
+    .id("name")
+    .size("value")
+    .draw()
+
 
 getUser();
+
+
+
+
+
+
 
 
 
