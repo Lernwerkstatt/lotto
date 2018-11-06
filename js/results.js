@@ -16,6 +16,24 @@ function getUser() {
             //d3BarChart(age);
             d3Gallery(imageLinks);
 
+            let result = {};
+
+            for (let i = 0; i < age.length; i++) {
+                if (!result.hasOwnProperty(age[i])) {
+                    result[age[i]] = 1;
+                } else {
+                    result[age[i]]++;
+                }
+            }
+
+            d3plus.viz()
+                .container("#viz")
+                .data(result)
+                .type("pie")
+                .id("name")
+                .size("value")
+                .draw()
+
         }
 
         )
@@ -45,13 +63,7 @@ const d3Gallery = function (dataset) {
 }
 
 
-d3plus.viz()
-    .container("#viz")
-    .data(dataset)
-    .type("pie")
-    .id("name")
-    .size("value")
-    .draw()
+
 
 
 getUser();
