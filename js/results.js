@@ -3,7 +3,7 @@ let country = {};
 let imageLinks = [];
 
 function getUser() {
-    fetch("https://randomuser.me/api/?results=25")
+    fetch("https://randomuser.me/api/?results=100")
         .then(response => {
             if (response.ok) return response.json();
             throw new Error("Request failed.");
@@ -25,6 +25,14 @@ function getUser() {
                     result[age[i]]++;
                 }
             }
+
+            d3plus.viz()
+                .container("#pie")
+                .data(convertArrayToObject(age))
+                .type("pie")
+                .id("name")
+                .size("value")
+                .draw()
         }
 
         )
@@ -53,13 +61,7 @@ var dataset = [
 ]
 
 
-d3plus.viz()
-    .container("#pie")
-    .data(dataset)
-    .type("pie")
-    .id("name")
-    .size("value")
-    .draw()
+
 
 d3plus.viz()
     .container("#bar")
@@ -81,11 +83,21 @@ const d3Gallery = function (dataset) {
 
 }
 
-
-
-
-
 getUser();
+
+function convertArrayToObject(arr) {
+    let result = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        let temp = {
+            name: arr[i],
+            value: 1
+        }
+        result.push(temp);
+    }
+
+    return result;
+}
 
 
 
